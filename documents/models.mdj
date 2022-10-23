@@ -237,7 +237,7 @@
 											"top": 133,
 											"width": 195.52685546875,
 											"height": 13,
-											"text": "Атворизован",
+											"text": "Авторизован",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3567,8 +3567,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGD/0b1JWlcdvo="
 							},
-							"name": "Атворизован",
-							"type": ""
+							"name": "Авторизован"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3594,7 +3593,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGD/0b1JWlcdvo="
 							},
-							"name": "Статус пользователя"
+							"name": "Статус пользователя",
+							"type": ""
 						}
 					]
 				},
@@ -3736,7 +3736,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGD/1Mi82yOY1o="
 							},
-							"name": "Статус вещи FK"
+							"name": "Статус вещи FK",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3744,7 +3745,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGD/1Mi82yOY1o="
 							},
-							"name": "Количество просмотров страницы"
+							"name": "Количество просмотров страницы",
+							"type": ""
 						}
 					]
 				},
@@ -3944,7 +3946,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGEBEbm2k6vVNU="
 							},
-							"name": "Статус"
+							"name": "Статус",
+							"type": ""
 						}
 					]
 				},
@@ -3992,7 +3995,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGEBEdpUVeaCYw="
 							},
-							"name": "Статус"
+							"name": "Статус",
+							"type": ""
 						}
 					]
 				}
