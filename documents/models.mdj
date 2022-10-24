@@ -1004,7 +1004,7 @@
 											"top": 315,
 											"width": 213.966796875,
 											"height": 13,
-											"text": "Время выставление вещи",
+											"text": "Время выставления вещи",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3567,7 +3567,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGD/0b1JWlcdvo="
 							},
-							"name": "Авторизован"
+							"name": "Авторизован",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3718,8 +3719,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGD/1Mi82yOY1o="
 							},
-							"name": "Время выставление вещи",
-							"type": ""
+							"name": "Время выставления вещи"
 						},
 						{
 							"_type": "UMLAttribute",
