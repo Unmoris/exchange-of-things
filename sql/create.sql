@@ -4,27 +4,35 @@ create table type_users(
     constraint type_users_pk PRIMARY KEY (id)
     );
 
+create table status_users(
+    id int,
+    name varchar(30),
+    constraint status_users_pk PRIMARY KEY (id)
+);
+
 create table users(
-id int primary key,
+id int ,
 surname varchar(50),
 name varchar(50),
 patronymic varchar(50),
 login varchar(50),
 password varchar(50),
-auth boolean,
+auth char(1),
 last_time_auth date,
+status int,
 type  int,
 constraint users_pk PRIMARY KEY (id),
+constraint status_users_users foreign key (status) references status_users(id),
 constraint type_users_type_users_fk foreign key (type) references type_users(id)
 );
 
 create table item(
-id int primary key,
+id int,
 title varchar(50),
 image varchar(250),
 count_view int,
 user int,
-description text null,
+description varchar(1000) null,
 time_publication date,
 constraint item_pk PRIMARY KEY (id),
 constraint user_item_users_fk foreign key (user) references users(id)
