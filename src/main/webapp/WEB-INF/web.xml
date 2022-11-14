@@ -20,7 +20,7 @@
 
 
     <listener>
-        <listener-class>com.example.exchangethings.ListenerSession</listener-class>
+        <listener-class>com.example.exchangethings.listeners.ListenerSession</listener-class>
     </listener>
 
 </web-app>

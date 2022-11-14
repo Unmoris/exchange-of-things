@@ -14,13 +14,12 @@
 
 <body>
 <h1>Using POST Method to Read Form Data</h1>
-
 <ul>
     <li><p><b>First Name:</b>
-        <%= request.getParameter("login")%>
+       ${user.login}
     </p></li>
     <li><p><b>Last Name:</b>
-        <%= request.getParameter("password")%>
+        ${user.surname}
     </p></li>
     <c:if test="${not empty password}">
     <li><p><b>Pass:</b>
