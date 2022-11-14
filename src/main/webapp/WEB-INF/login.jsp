@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -10,16 +11,21 @@
     <h1><%= "Введите логин и пароль ^-^" %>
     </h1>
     <br/>
-    <form action="main" method="POST"  class="form_center">
+    <form action="main" method="POST" class="form_center">
         <a>Login:</a>
         <br/> <input type="text" name="login">
         <br/>
         <a>Password:</a>
         <br/> <input type="password" name="password"/>
         <br/>
-        <button type="submit" value="login" name="command" >
+        <button type="submit" value="login" name="command">
             Войти
         </button>
+        <c:if test="${not empty error}">
+            <a><b>Ошибка:</b>
+                <c:out value="${error}"></c:out>
+            </a>
+        </c:if>
     </form>
 </div>
 </body>

@@ -1,6 +1,7 @@
 package com.example.exchangethings.controller.commands;
 
 import com.example.exchangethings.helper.Helper;
+import com.example.exchangethings.exceptions.IncludeParameterException;
 import com.example.exchangethings.view.View;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,12 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.logging.Logger;
 
 public class ActionViewCommand implements ActionCommand {
-    public ActionViewCommand(View view, Helper helper) {
+    public ActionViewCommand(View view, View errorView, Helper helper) {
         this.view = view;
         this.helper = helper;
+        this.errorView = errorView;
+    }
+
+    public ActionViewCommand(View commonView, Helper helper) {
+        this.view = commonView;
+        this.helper = helper;
+        this.errorView = commonView;
     }
 
     private View view;
+    private View errorView;
 
     private Helper helper;
     private Logger logger = Logger.getLogger(this.getClass().getName());
@@ -24,11 +33,14 @@ public class ActionViewCommand implements ActionCommand {
         loggerMessage.append("Path: ")
                 .append(request.getContextPath())
                 .append(" show: ")
-                .append(view.getClass().getName());
+                .append(request.getParameter("command"));
 
         logger.info(loggerMessage.toString());
-
-        helper.includeParamsInScopes(request, response);
-        view.show(request, response);
+        try {
+            helper.includeParamsInScopes(request, response);
+            view.show(request, response);
+        } catch (IncludeParameterException e) {
+            errorView.show(request, response);
+        }
     }
 }
