@@ -1,4 +1,4 @@
-package com.example.exchangethings.datalayer.entity;
+package ru.rsreu.exchangethings.model.datalayer.entity;
 
 public class UserType {
     private int userTypeID;
