@@ -8,19 +8,20 @@
 </head>
 <body>
 <div class="desk_center">
-    <h1><%= "Введите логин и пароль ^-^" %>
+    <h1>Введите логин и пароль
     </h1>
     <br/>
-    <form action="main" method="POST" class="form_center">
+    <form method="POST" action="main" class="form_center">
         <a>Login:</a>
         <br/> <input type="text" name="login">
         <br/>
         <a>Password:</a>
         <br/> <input type="password" name="password"/>
         <br/>
-        <button type="submit" value="login" name="command">
+        <button type="submit">
             Войти
         </button>
+        <input type="hidden" value="login" name="command">
         <c:if test="${not empty error}">
             <a><b>Ошибка:</b>
                 <c:out value="${error}"></c:out>

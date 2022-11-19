@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<h1>Using POST Method to Read Form Data</h1>
+<h1>MAIN JSP</h1>
 <ul>
     <li><p><b>First Name:</b>
        ${user.login}
