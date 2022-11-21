@@ -9,24 +9,30 @@ import ru.rsreu.exchangethings.view.ViewEnum;
 public enum CommandsEnum {
     LOGIN {
         {
-            command = new ActionViewCommand(ViewEnum.USER.getView(), ViewEnum.LOGIN.getView(), new LoginHelper(new TestLogging()));
+            command = new ActionViewCommandCommonView(ViewEnum.TRUE.getView(), ViewEnum.LOGIN.getView(), new LoginHelper(new TestLogging()));
         }
     },
     INPUT {
         {
-            command = new ActionViewCommand(ViewEnum.LOGIN.getView(), new LoggerHelper());
+            command = new ActionViewCommandCommonView(ViewEnum.LOGIN.getView(), new LoggerHelper());
         }
     },
     LOGOUT {
         {
-            command = new ActionViewCommand(new CommonForwardView(""), new LoggerHelper());
+            command = new ActionViewCommandCommonView(new CommonForwardView(""), new LoggerHelper());
         }
     },
     EMPTY {
         {
-            command = new ActionViewCommand(ViewEnum.ERROR.getView(), new LoggerHelper());
+            command = new ActionViewCommandCommonView(ViewEnum.EMPTY.getView(), new LoggerHelper());
         }
-    };
+    }
+//    MENU{
+//        {
+//            command = new ActionViewCommandCommonView(,new LoggerHelper());
+//        }
+//    }
+    ;
 
     ActionCommand command;
 

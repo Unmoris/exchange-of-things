@@ -11,9 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-<h1>ERROR IN SERVER</h1>
-<form method="post">
-    <input type="hidden">
+<h1>Пустая страница</h1>
+<form method="post" action="index.jsp">
     <button type="submit">
         Вход
     </button>

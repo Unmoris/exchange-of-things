@@ -12,6 +12,7 @@
     </h1>
     <br/>
     <form method="POST" action="main" class="form_center">
+        <input type="hidden" value="login" name="command">
         <a>Login:</a>
         <br/> <input type="text" name="login">
         <br/>
@@ -21,7 +22,6 @@
         <button type="submit">
             Войти
         </button>
-        <input type="hidden" value="login" name="command">
         <c:if test="${not empty error}">
             <a><b>Ошибка:</b>
                 <c:out value="${error}"></c:out>

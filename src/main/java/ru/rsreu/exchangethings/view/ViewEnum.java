@@ -3,9 +3,9 @@ package ru.rsreu.exchangethings.view;
 import ru.rsreu.exchangethings.configuration.JspResource;
 
 public enum ViewEnum {
-    ERROR {
+    EMPTY {
         {
-            this.view = new CommonForwardView(JspResource.getProperty("error.path"));
+            this.view = new CommonForwardView(JspResource.getProperty("empty.path"));
         }
     },
     TRUE {
