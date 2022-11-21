@@ -14,19 +14,39 @@
 
 <body>
 <h1>MAIN JSP</h1>
-<ul>
-    <li><p><b>First Name:</b>
-       ${user.login}
-    </p></li>
-    <li><p><b>Last Name:</b>
-        ${user.surname}
-    </p></li>
-    <c:if test="${not empty password}">
-    <li><p><b>Pass:</b>
-        <%= session.getAttribute("password")%>
-    </p></li>
-    </c:if>
-</ul>
+<div>
+    <form method="post">
+        <input type="hidden" name="command" value="menu" >
+        <button value="info" name="menu_item">
+            Моя информация
+        </button>
+        <button value="items" name="menu_item">
+            Мои вещи
+        </button>
+        <button value="items" name="menu_item">
+            Мои обмены
+        </button>
+        <button value="search" name="menu_item">
+            Поиск вещей
+        </button>
+    </form>
+</div>
+<div>
+    <ul>
+        <li><p><b>First Name:</b>
+            ${user.login}
+        </p></li>
+        <li><p><b>Last Name:</b>
+            ${user.surname}
+        </p></li>
+        <c:if test="${not empty password}">
+            <li><p><b>Pass:</b>
+                <%= session.getAttribute("password")%>
+            </p></li>
+        </c:if>
+    </ul>
+</div>
+
 
 <form action="main" method="POST">
     Password: <input type="text" name="password">

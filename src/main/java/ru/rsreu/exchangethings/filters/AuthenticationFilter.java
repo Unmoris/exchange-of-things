@@ -10,16 +10,12 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Objects;
 import java.util.logging.Logger;
 
 public class AuthenticationFilter implements Filter {
-    Logger log = Logger.getLogger(this.getClass().getName());
+    Logger logger = Logger.getLogger(this.getClass().getName());
     TokenExist tokenService = SecurityService.getInstance();
 
     private Object getToken(HttpServletRequest request) {
@@ -50,7 +46,8 @@ public class AuthenticationFilter implements Filter {
         String token = (String) this.getToken(httpRequest);
 
         if ((token == null || !tokenService.tokenExist(token)) && (!this.isLoginCommand(request))) {
-            log.info("filter exception AuthenticationException");
+            logger.info("filter exception AuthenticationException");
+            request.setAttribute("error", "Ошибка доступа");
             throw new AuthenticationException();
         }
         chain.doFilter(request, response);

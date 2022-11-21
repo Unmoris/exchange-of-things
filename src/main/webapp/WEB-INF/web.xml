@@ -43,7 +43,7 @@
             ru.rsreu.exchangethings.exceptions.AuthenticationException
         </exception-type>
         <location>
-            /WEB-INF/error.jsp
+            /WEB-INF/login.jsp
         </location>
     </error-page>
 </web-app>
