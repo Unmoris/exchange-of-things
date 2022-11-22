@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 public class SessionListener implements HttpSessionListener {
     private final Logger logger = Logger.getLogger(this.getClass().getName());
-    private final SecurityService securityService = SecurityService.getInstance();
+    private final SecurityService securityService = SecurityService.instance;
 
     @Override
     public void sessionCreated(HttpSessionEvent se) {

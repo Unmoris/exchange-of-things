@@ -8,7 +8,7 @@ public enum ViewEnum {
             this.view = new CommonForwardView(JspResource.getProperty("empty.path"));
         }
     },
-    TRUE {
+    MAIN {
         {
             this.view = new CommonForwardView(JspResource.getProperty("main.path"));
         }

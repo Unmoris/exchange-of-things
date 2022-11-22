@@ -1,42 +1,31 @@
 package ru.rsreu.exchangethings.controller.commands;
 
+import ru.rsreu.exchangethings.controller.commands.actions.Action;
+import ru.rsreu.exchangethings.controller.commands.actions.FactoryAction;
+import ru.rsreu.exchangethings.controller.commands.actions.ViewAction;
+import ru.rsreu.exchangethings.controller.commands.user.UserFactory;
+import ru.rsreu.exchangethings.helper.HelperEnum;
 import ru.rsreu.exchangethings.helper.LoggerHelper;
-import ru.rsreu.exchangethings.helper.LoginHelper;
+import ru.rsreu.exchangethings.helper.login.LoginHelper;
 import ru.rsreu.exchangethings.model.mock.TestLogging;
 import ru.rsreu.exchangethings.view.CommonForwardView;
 import ru.rsreu.exchangethings.view.ViewEnum;
 
-public enum CommandsEnum {
-    LOGIN {
-        {
-            command = new ActionViewCommandCommonView(ViewEnum.TRUE.getView(), ViewEnum.LOGIN.getView(), new LoginHelper(new TestLogging()));
-        }
-    },
-    INPUT {
-        {
-            command = new ActionViewCommandCommonView(ViewEnum.LOGIN.getView(), new LoggerHelper());
-        }
-    },
-    LOGOUT {
-        {
-            command = new ActionViewCommandCommonView(new CommonForwardView(""), new LoggerHelper());
-        }
-    },
-    EMPTY {
-        {
-            command = new ActionViewCommandCommonView(ViewEnum.EMPTY.getView(), new LoggerHelper());
-        }
+public enum CommandsEnum implements GetAction {
+    LOGIN(new ViewAction(ViewEnum.MAIN.getView(), ViewEnum.LOGIN.getView(), HelperEnum.LOGGER.getHelper())),
+    INPUT(new ViewAction(ViewEnum.LOGIN.getView(), HelperEnum.LOGGER.getHelper())),
+    LOGOUT(new ViewAction(new CommonForwardView(""), HelperEnum.LOGGER.getHelper())),
+    EMPTY(new ViewAction(ViewEnum.EMPTY.getView(), HelperEnum.LOGGER.getHelper())),
+    USER(new FactoryAction(new UserFactory()));
+
+    private Action action;
+
+    CommandsEnum(Action action) {
+        this.action = action;
     }
-//    MENU{
-//        {
-//            command = new ActionViewCommandCommonView(,new LoggerHelper());
-//        }
-//    }
-    ;
 
-    ActionCommand command;
-
-    public ActionCommand getCommand() {
-        return command;
+    @Override
+    public Action getAction() {
+        return action;
     }
 }

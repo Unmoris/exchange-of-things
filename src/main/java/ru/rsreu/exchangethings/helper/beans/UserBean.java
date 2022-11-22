@@ -3,8 +3,6 @@ package ru.rsreu.exchangethings.helper.beans;
 import java.io.Serializable;
 
 public class UserBean implements Serializable {
-    private static final long serialVersionUID = 2041275512219239990L;
-
     private Integer id;
     private String login;
     private String name;

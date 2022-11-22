@@ -21,6 +21,7 @@ abstract public class CommonView implements View {
 
     protected void forwardToJsp(HttpServletRequest request, HttpServletResponse response) {
         try {
+            logger.info("forward to " + pathToPage);
             ServletContext servletContext = request.getServletContext();
             RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(pathToPage);
             requestDispatcher.forward(request, response);

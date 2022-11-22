@@ -1,4 +1,4 @@
-package ru.rsreu.exchangethings.controller.commands;
+package ru.rsreu.exchangethings.controller.commands.actions;
 
 import ru.rsreu.exchangethings.helper.Helper;
 import ru.rsreu.exchangethings.exceptions.IncludeParameterException;
@@ -7,14 +7,14 @@ import ru.rsreu.exchangethings.view.View;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-final public class ActionViewCommandCommonView extends ActionViewCommandLogger {
-    public ActionViewCommandCommonView(View view, View errorView, Helper helper) {
+final public class ViewAction extends LoggerAction {
+    public ViewAction(View view, View errorView, Helper helper) {
         this.view = view;
         this.helper = helper;
         this.errorView = errorView;
     }
 
-    public ActionViewCommandCommonView(View commonView, Helper helper) {
+    public ViewAction(View commonView, Helper helper) {
         this.view = commonView;
         this.helper = helper;
         this.errorView = commonView;

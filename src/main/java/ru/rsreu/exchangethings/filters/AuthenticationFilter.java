@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 public class AuthenticationFilter implements Filter {
     Logger logger = Logger.getLogger(this.getClass().getName());
-    TokenExist tokenService = SecurityService.getInstance();
+    TokenExist tokenService = SecurityService.instance;
 
     private Object getToken(HttpServletRequest request) {
         return request

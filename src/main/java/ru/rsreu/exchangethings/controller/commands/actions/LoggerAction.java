@@ -1,10 +1,10 @@
-package ru.rsreu.exchangethings.controller.commands;
+package ru.rsreu.exchangethings.controller.commands.actions;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.logging.Logger;
 
-public class ActionViewCommandLogger implements ActionCommand {
+public class LoggerAction implements Action {
     protected Logger logger = Logger.getLogger(this.getClass().getName());
 
     private String logMessage(HttpServletRequest request) {

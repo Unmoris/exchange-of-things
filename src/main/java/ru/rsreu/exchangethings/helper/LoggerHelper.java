@@ -13,13 +13,14 @@ public class LoggerHelper implements Helper {
     protected String logParams(Enumeration<String> atr) {
         StringBuilder str = new StringBuilder();
         while (atr.hasMoreElements()) {
-            str.append(atr.nextElement());
+            str.append(" ")
+                    .append(atr.nextElement());
         }
         return str.toString();
     }
 
     @Override
     public void includeParamsInScopes(HttpServletRequest request, HttpServletResponse response) throws IncludeParameterException {
-        logger.info("include parameters");
+        logger.info("include parameters" + logParams(request.getHeaderNames()));
     }
 }

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.SecureRandom;
 import java.util.Base64;
+import java.util.logging.Logger;
 
 public class TokenRegistrar {
 
@@ -26,31 +27,17 @@ public class TokenRegistrar {
         return base64Encoder.encodeToString(randomBytes);
     }
 
-    private Cookie getCookie(String token) {
-        Cookie cookie = new Cookie("token", token);
-        cookie.setMaxAge(-1);
-        return cookie;
-    }
-
-    public void registration(HttpServletResponse response, TokenInfo info) {
-        String token = generateNewToken();
-
-        response.addCookie(this.getCookie(token));
-
-        securityService.addToken(token, info);
-    }
-
     public void registration(HttpServletRequest request, TokenInfo info) {
         String token = generateNewToken();
-
         request.getSession().setAttribute("token", token);
+        Logger.getLogger("security").info(token);
 
         securityService.addToken(token, info);
     }
 
     public static TokenRegistrar getInstance() {
         if (instance == null)
-            instance = new TokenRegistrar(SecurityService.getInstance());
+            instance = new TokenRegistrar(SecurityService.instance);
         return instance;
     }
 
