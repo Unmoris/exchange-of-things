@@ -21,6 +21,6 @@ public class LoggerHelper implements Helper {
 
     @Override
     public void includeParamsInScopes(HttpServletRequest request, HttpServletResponse response) throws IncludeParameterException {
-        logger.info("include parameters" + logParams(request.getHeaderNames()));
+        logger.info("include parameters");
     }
 }

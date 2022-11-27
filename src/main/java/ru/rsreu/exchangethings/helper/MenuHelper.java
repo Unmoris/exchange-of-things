@@ -1,15 +1,14 @@
-package ru.rsreu.exchangethings.helper.user;
+package ru.rsreu.exchangethings.helper;
 
 import ru.rsreu.exchangethings.exceptions.IncludeParameterException;
-import ru.rsreu.exchangethings.helper.Helper;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-abstract public class UserMenuHelper implements Helper {
+abstract public class MenuHelper implements Helper {
     protected String menuParameter;
 
-    public UserMenuHelper(String menuParameter){
+    public MenuHelper(String menuParameter){
         this.menuParameter = menuParameter;
     }
     @Override

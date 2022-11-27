@@ -23,12 +23,12 @@ public class UserBean implements Serializable {
 
     public UserBean() {
         id = -1;
-        login = "";
-        name = "";
-        surname = "";
-        patronymic = "";
-        userRole = "";
-        userStatus = "";
+        login = "test";
+        name = "test";
+        surname = "test";
+        patronymic = "test";
+        userRole = "test";
+        userStatus = "test";
     }
 
     public Integer getId() {

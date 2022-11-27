@@ -1,14 +1,21 @@
 package ru.rsreu.exchangethings.helper.beans;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 
 public class ItemBean implements Serializable {
     private int id;
-    private String name;
+
+    private String title;
     private String image;
     private String description;
-    private String owner;
+
+
+    private boolean isHidden;
+    private UserBean owner;
     private String status;
+
+    private LocalTime publishTime;
     private int count;
 
     public int getId() {
@@ -19,21 +26,28 @@ public class ItemBean implements Serializable {
     }
 
     public ItemBean(String name, String image, String description) {
-        this.name = name;
+        this.title = name;
         this.image = image;
         this.description = description;
+    }
+
+    public ItemBean(String name, String image, String description, UserBean owner) {
+        this.title = name;
+        this.image = image;
+        this.description = description;
+        this.owner = owner;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getImage() {
@@ -52,11 +66,11 @@ public class ItemBean implements Serializable {
         this.description = description;
     }
 
-    public String getOwner() {
+    public UserBean getOwner() {
         return owner;
     }
 
-    public void setOwner(String owner) {
+    public void setOwner(UserBean owner) {
         this.owner = owner;
     }
 
@@ -68,6 +82,14 @@ public class ItemBean implements Serializable {
         this.status = status;
     }
 
+    public LocalTime getPublishTime() {
+        return publishTime;
+    }
+
+    public void setPublishTime(LocalTime publishTime) {
+        this.publishTime = publishTime;
+    }
+
     public int getCount() {
         return count;
     }
@@ -76,4 +98,11 @@ public class ItemBean implements Serializable {
         this.count = count;
     }
 
+    public boolean getIsHidden() {
+        return isHidden;
+    }
+
+    public void setIsHidden(boolean hidden) {
+        isHidden = hidden;
+    }
 }

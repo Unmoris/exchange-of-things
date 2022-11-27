@@ -2,11 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Using GET and POST Method to Read Form Data</title>
+    <jsp:include page="template/header/header.jsp"/>
 </head>
-
 <body>
-<h1>MAIN JSP</h1>
+<h1>USER MENU</h1>
 <div>
     <jsp:include page="template/user-menu.jsp"/>
     <jsp:include page="template/user-body.jsp"/>

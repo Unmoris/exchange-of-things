@@ -1,22 +1,14 @@
 package ru.rsreu.exchangethings.controller.commands;
 
 import ru.rsreu.exchangethings.controller.commands.actions.Action;
+import ru.rsreu.exchangethings.controller.commands.actions.ActionLogger;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.logging.Logger;
 
 abstract public class ActionFactory {
-    protected Logger logger = Logger.getLogger(this.getClass().getName());
 
     protected Action getEmptyAction() {
-        return new Action() {
-
-            @Override
-            public void execute(HttpServletRequest request, HttpServletResponse response) {
-                logger.info("empty action: " + request.getContextPath());
-            }
-        };
+        return ActionLogger.emptyAction;
     }
 
     abstract protected String getNameParameter();
@@ -35,7 +27,6 @@ abstract public class ActionFactory {
     abstract protected Action detectedAction( String action,HttpServletRequest request);
 
     public Action defineAction(HttpServletRequest request) {
-        logger.info("start factory");
         Action current = getEmptyAction();
         // извлечение имени команды из запроса
         String action = this.getAction(request);
@@ -47,7 +38,7 @@ abstract public class ActionFactory {
         try {
             current = this.detectedAction( action,request);
         } catch (IllegalArgumentException e) {
-            logger.warning("wrongAction");
+            ActionLogger.logger.warning("wrongAction");
             request.setAttribute("wrongAction", action);
         }
         return current;

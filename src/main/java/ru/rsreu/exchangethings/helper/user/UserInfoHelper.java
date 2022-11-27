@@ -1,13 +1,13 @@
 package ru.rsreu.exchangethings.helper.user;
 
 import ru.rsreu.exchangethings.exceptions.IncludeParameterException;
+import ru.rsreu.exchangethings.helper.MenuHelper;
 import ru.rsreu.exchangethings.helper.beans.UserBean;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.logging.Logger;
 
-public class UserInfoHelper extends UserMenuHelper {
+public class UserInfoHelper extends MenuHelper {
 
     public UserInfoHelper() {
         super("info");
