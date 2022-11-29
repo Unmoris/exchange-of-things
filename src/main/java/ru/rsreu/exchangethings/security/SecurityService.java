@@ -4,10 +4,11 @@ import ru.rsreu.exchangethings.security.token.TokenInfo;
 import ru.rsreu.exchangethings.security.token.TokenStorage;
 import ru.rsreu.exchangethings.security.token.TokenStorageMap;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 
 public class SecurityService implements TokenStorage {
-    private static SecurityService instance;
+    public static final SecurityService instance = new SecurityService();
 
     private final TokenStorageMap storage;
 
@@ -16,8 +17,13 @@ public class SecurityService implements TokenStorage {
     }
 
     @Override
-    public TokenInfo getId(String token) {
-        return storage.getId(token);
+    public TokenInfo getTokenInfo(String token) {
+        return storage.getTokenInfo(token);
+    }
+
+    public TokenInfo getTokenInfo(HttpServletRequest request) {
+        String token = (String) request.getSession().getAttribute("token");
+        return getTokenInfo(token);
     }
 
     @Override
@@ -28,12 +34,6 @@ public class SecurityService implements TokenStorage {
     @Override
     public boolean tokenExist(String token) {
         return storage.tokenExist(token);
-    }
-
-    public static SecurityService getInstance() {
-        if (instance == null)
-            instance = new SecurityService();
-        return instance;
     }
 
     @Override

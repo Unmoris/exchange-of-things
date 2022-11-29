@@ -1,8 +1,10 @@
 package ru.rsreu.exchangethings.security.token;
 
+import ru.rsreu.exchangethings.model.UserRoleEnum;
+
 public class TokenInfo {
 
-    public TokenInfo(int userId, String userRole) {
+    public TokenInfo(int userId, UserRoleEnum userRole) {
         this.userId = userId;
         this.userRole = userRole;
     }
@@ -15,14 +17,14 @@ public class TokenInfo {
         this.userId = userId;
     }
 
-    public String getUserRole() {
+    public UserRoleEnum getUserRole() {
         return userRole;
     }
 
-    public void setUserRole(String userRole) {
+    public void setUserRole(UserRoleEnum userRole) {
         this.userRole = userRole;
     }
 
     private int userId;
-    private String userRole;
+    private UserRoleEnum userRole;
 }

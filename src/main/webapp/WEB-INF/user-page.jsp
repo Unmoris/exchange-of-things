@@ -8,8 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="template/header.jsp"/>
-    <jsp:include page="template/meta.jsp"/>
+    <jsp:include page="template/header/header.jsp"/>
+    <jsp:include page="template/header/meta.jsp"/>
 </head>
 <body>
 <h2>Страница пользователя</h2>

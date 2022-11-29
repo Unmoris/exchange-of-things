@@ -16,7 +16,7 @@ public class TokenStorageMap implements TokenStorage {
     }
 
     @Override
-    public TokenInfo getId(String token) {
+    public TokenInfo getTokenInfo(String token) {
         return tokens.get(token);
     }
 

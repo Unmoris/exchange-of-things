@@ -13,7 +13,8 @@ public class LoggerHelper implements Helper {
     protected String logParams(Enumeration<String> atr) {
         StringBuilder str = new StringBuilder();
         while (atr.hasMoreElements()) {
-            str.append(atr.nextElement());
+            str.append(" ")
+                    .append(atr.nextElement());
         }
         return str.toString();
     }
