@@ -12,7 +12,7 @@ public enum UserActionEnum implements GetAction {
     INFO(new ViewAction(ViewEnum.MAIN.getView(), HelperEnum.USER_INFO.getHelper())),
     MY_ITEMS(new ViewAction(ViewEnum.MAIN.getView(), HelperEnum.USER_ITEMS.getHelper())),
     EXCHANGE(new ViewAction(ViewEnum.MAIN.getView(), HelperEnum.USER_EXCHANGES.getHelper())),
-    LIST_ITEMS(new ViewAction(ViewEnum.EMPTY.getView(), HelperEnum.LOGGER.getHelper()));
+    LIST_ITEMS(new ViewAction(ViewEnum.MAIN.getView(), HelperEnum.USER_LIST_ITEMS.getHelper()));
 
     Action action;
 

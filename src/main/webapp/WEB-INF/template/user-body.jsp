@@ -36,21 +36,19 @@
                 </button>
                 <form>
                     <label>
-                        id : ${item.id} </br>
-                    </label>
-                    <label>
                         Название: ${item.title} </br>
                     </label>
                     <label>
                         Описание ${item.description} </br>
                     </label>
-                    <button name="user_action" value="hide_item">
-                        <c:if test="${item.isHidden}">
-                            Открыть вещь
-                        </c:if>
-                        <c:if test="${not item.isHidden}">
-                            Скрыть вещь
-                        </c:if>
+                    <label>
+                        Картинка: ${item.image} </br>
+                    </label>
+                    <button name="user_action" value="exchange_item_approve">
+                        Обменять
+                    </button>
+                    <button name="user_action" value="exchange_item_not_approve">
+                        Отменить
                     </button>
                     <input type="hidden" name="id_item" value="${item.id}">
                 </form>
@@ -85,14 +83,23 @@
         </c:forEach>
     </c:when>
     <c:when test="${menu_item == 'list_items'}">
-        <c:forEach var="list_items" items="${item}">
+        <c:forEach var="item" items="${items}">
             <div>
-                <a>
-                    Название: ${item.name}</br>
-                    Описание: ${item.description} </br>
-                    Моя вещь: ${item.itemSender} </br>
-                    Обменная вещь: ${item.itemReciver} </br>
-                </a>
+                <form>
+                    <label>
+                        Название: ${item.title} </br>
+                    </label>
+                    <label>
+                        Описание: ${item.description} </br>
+                    </label>
+                    <label>
+                        Картинка: ${item.image} </br>
+                    </label>
+                    <button name="exhange" value="exhange_item">
+                        Обменять
+                    </button>
+                    <input type="hidden" name="id_item" value="${item.id}">
+                </form>
             </div>
         </c:forEach>
     </c:when>
