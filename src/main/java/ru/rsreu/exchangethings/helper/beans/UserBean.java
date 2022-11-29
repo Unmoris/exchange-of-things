@@ -8,15 +8,18 @@ public class UserBean implements Serializable {
     private String name;
     private String surname;
     private String patronymic;
+
+    private String isAuthorized;
     private String userRole;
     private String userStatus;
 
-    public UserBean(Integer id, String login, String name, String surname, String patronymic, String userRole, String userStatus) {
+    public UserBean(Integer id, String login, String name, String surname, String patronymic,  String isAuthorized, String userRole, String userStatus) {
         this.id = id;
         this.login = login;
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
+        this.isAuthorized = isAuthorized;
         this.userRole = userRole;
         this.userStatus = userStatus;
     }
@@ -70,6 +73,10 @@ public class UserBean implements Serializable {
     public void setPatronymic(String patronymic) {
         this.patronymic = patronymic;
     }
+
+    public String getIsAuthorized() { return isAuthorized; }
+
+    public void setIsAuthorized(String isAuthorized) { this.isAuthorized = isAuthorized; }
 
     public String getUserRole() {
         return userRole;

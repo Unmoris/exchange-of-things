@@ -1,6 +1,6 @@
 package ru.rsreu.exchangethings.model.datalayer.entity;
 
-public class Items {
+public class ItemEntity {
 
     private int itemsID;
     private String title;
@@ -11,8 +11,8 @@ public class Items {
     private String itemStatus;
     private String countView;
 
-    public Items(int itemsID, String title, String image, String description, String publicationTime,
-                 String userID, String itemStatus, String countView) {
+    public ItemEntity(int itemsID, String title, String image, String description, String publicationTime,
+                      String userID, String itemStatus, String countView) {
         this.itemsID = itemsID;
         this.title = title;
         this.image = image;

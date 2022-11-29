@@ -1,5 +1,7 @@
 package ru.rsreu.exchangethings.model.datalayer.oracledb;
 
+import ru.rsreu.exchangethings.configuration.ConnectionResource;
+import ru.rsreu.exchangethings.configuration.JspResource;
 import ru.rsreu.exchangethings.model.datalayer.DAOFactory;
 
 import java.sql.Connection;
@@ -28,13 +30,9 @@ public class OracleDBDAOFactory extends DAOFactory {
 
     private void connected() throws ClassNotFoundException, SQLException {
         Locale.setDefault(Locale.ENGLISH);
-        //Resourcer resourcer = ProjectResourcer.getInstance();
-        //String url = resourcer.getString("db.url");
-        String url = "db.url";
-        String user = "db.user";
-        String password = "db.password";
-                //String user = resourcer.getString("db.user");
-        //String password = resourcer.getString("db.password");
+        String url = ConnectionResource.getProperty("db.url");
+        String user = ConnectionResource.getProperty("db.user");
+        String password = ConnectionResource.getProperty("db.password");
         connection = DriverManager.getConnection(url, user, password);
         System.out.println("Connected to oracle DB!");
     }

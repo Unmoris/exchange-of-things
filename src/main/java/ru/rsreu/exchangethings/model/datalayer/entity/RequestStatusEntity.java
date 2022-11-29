@@ -1,11 +1,11 @@
 package ru.rsreu.exchangethings.model.datalayer.entity;
 
-public class RequestStatus {
+public class RequestStatusEntity {
 
     private int requestStatusID;
     private String requestStatusName;
 
-    public RequestStatus(int requestStatusID, String requestStatusName) {
+    public RequestStatusEntity(int requestStatusID, String requestStatusName) {
         this.requestStatusID = requestStatusID;
         this.requestStatusName = requestStatusName;
     }

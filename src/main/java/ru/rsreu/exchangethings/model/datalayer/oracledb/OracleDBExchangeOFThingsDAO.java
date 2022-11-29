@@ -1,42 +1,53 @@
 package ru.rsreu.exchangethings.model.datalayer.oracledb;
 
+import ru.rsreu.exchangethings.configuration.EntitiesResource;
+import ru.rsreu.exchangethings.configuration.QueriesProperties;
 import ru.rsreu.exchangethings.model.datalayer.ExchangeOfThingsDAO;
+import ru.rsreu.exchangethings.model.datalayer.entity.UserEntity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class OracleDBExchangeOFThingsDAO implements ExchangeOfThingsDAO {
 
     private Connection connection;
-    //private Resourcer resourcer;
-
     public OracleDBExchangeOFThingsDAO(Connection connection) {
         this.connection = connection;
-        //this.resourcer = ProjectResourcer.getInstance();
     }
 
 
-    /*@Override
-    public List<DutiesCompletedBySpecificDateDTO> getDutiesCompletedBySpecificDate(String endDate) throws SQLException, ParseException {
-        String query = resourcer.getString("DutiesCompletedBySpecificDate.request");
-        List<DutiesCompletedBySpecificDateDTO> dutiesCompletedBySpecificDate = new ArrayList<>();
-        PreparedStatement preparedStatementDuties = this.getPreparedStatement(query);
-        preparedStatementDuties.setDate(1, DateFormatter.getSimpleDateFormatTime(endDate));
-        ResultSet resultSet = preparedStatementDuties.executeQuery();
+    @Override
+    public List<UserEntity> getUsersByAuthorizationStatus(String authorizationStatus) throws SQLException {
+        String query = QueriesProperties.getProperty("UsersByAuthorizationStatus.request");
+        PreparedStatement preparedStatementUsers = this.getPreparedStatement(query);
+        preparedStatementUsers.setString(1, authorizationStatus);
+        ResultSet resultSet = preparedStatementUsers.executeQuery();
+        return this.getUsersFromQuery(resultSet);
+    }
+
+    private  List<UserEntity> getUsersFromQuery(ResultSet resultSet) throws SQLException {
+        List<UserEntity> users = new ArrayList<>();
         while (resultSet.next()) {
-            DutiesCompletedBySpecificDateDTO dutiesCompletedBySpecificDateDTO =
-                    new DutiesCompletedBySpecificDateDTO(resultSet.getString(resourcer.getString("Definition")),
-                            resultSet.getDate(resourcer.getString("End_date")));
-            dutiesCompletedBySpecificDate.add(dutiesCompletedBySpecificDateDTO);
+            UserEntity user =
+                    new UserEntity(resultSet.getInt(EntitiesResource.getProperty("id")),
+                            resultSet.getString(EntitiesResource.getProperty("surname")),
+                            resultSet.getString(EntitiesResource.getProperty("name")),
+                            resultSet.getString(EntitiesResource.getProperty("patronymic")),
+                            resultSet.getString(EntitiesResource.getProperty("login")),
+                            resultSet.getString(EntitiesResource.getProperty("password")),
+                            resultSet.getString(EntitiesResource.getProperty("is_authorized")),
+                            resultSet.getString(EntitiesResource.getProperty("last_login_time")),
+                            resultSet.getString(EntitiesResource.getProperty("role_name")),
+                            resultSet.getString(EntitiesResource.getProperty("user_status_name")));
+            users.add(user);
         }
-        return dutiesCompletedBySpecificDate;
+        return users;
     }
-
+/*
     @Override
     public List<Employees> getEmployeesByDuty(String dutyTypeID) throws SQLException {
         int dutyID = Integer.parseInt(dutyTypeID);

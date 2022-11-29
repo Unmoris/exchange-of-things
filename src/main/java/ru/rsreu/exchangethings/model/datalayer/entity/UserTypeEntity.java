@@ -1,10 +1,10 @@
 package ru.rsreu.exchangethings.model.datalayer.entity;
 
-public class UserType {
+public class UserTypeEntity {
     private int userTypeID;
     private String roleName;
 
-    public UserType(int userTypeID, String roleName) {
+    public UserTypeEntity(int userTypeID, String roleName) {
         this.userTypeID = userTypeID;
         this.roleName = roleName;
     }
