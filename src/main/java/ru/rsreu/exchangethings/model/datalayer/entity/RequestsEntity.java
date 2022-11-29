@@ -1,6 +1,6 @@
 package ru.rsreu.exchangethings.model.datalayer.entity;
 
-public class Requests {
+public class RequestsEntity {
     private int RequestID;
     private String publicationTime;
     private int requestStatusID;

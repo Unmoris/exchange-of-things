@@ -15,7 +15,7 @@ public class UserInfoHelper extends MenuHelper {
 
     @Override
     public void includeParamsInScopes(HttpServletRequest request, HttpServletResponse response) throws IncludeParameterException {
-        request.setAttribute("user", new UserBean(1, "m.lapkin", "Миша", "Лапкин", "Ильич", "Пользователь", "Активен"));
+        request.setAttribute("user", new UserBean(1, "m.lapkin", "Миша", "Лапкин", "Ильич", "1", "Пользователь", "Активен"));
         super.includeParamsInScopes(request,response);
     }
 }

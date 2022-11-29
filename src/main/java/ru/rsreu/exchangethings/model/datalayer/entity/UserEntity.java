@@ -1,6 +1,6 @@
 package ru.rsreu.exchangethings.model.datalayer.entity;
 
-public class Users {
+public class UserEntity {
 
     private int userID;
     private String surname;
@@ -10,11 +10,11 @@ public class Users {
     private String password;
     private String isAuthorized;
     private String lastLoginTime;
-    private int userRole;
-    private int userStatus;
+    private String userRole;
+    private String userStatus;
 
-    public Users(int id, String surname, String name, String patronymic, String login, String password,
-                 String isAuthorized, String lastLoginTime, int userRole, int userStatus) {
+    public UserEntity(int id, String surname, String name, String patronymic, String login, String password,
+                      String isAuthorized, String lastLoginTime, String userRole, String userStatus) {
         this.userID = id;
         this.surname = surname;
         this.name = name;
@@ -91,19 +91,19 @@ public class Users {
         this.lastLoginTime = lastLoginTime;
     }
 
-    public int getUserRole() {
+    public String getUserRole() {
         return userRole;
     }
 
-    public void setUserRole(int userRole) {
+    public void setUserRole(String userRole) {
         this.userRole = userRole;
     }
 
-    public int getUserStatus() {
+    public String getUserStatus() {
         return userStatus;
     }
 
-    public void setUserStatus(int userStatus) {
+    public void setUserStatus(String userStatus) {
         this.userStatus = userStatus;
     }
 }
