@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<jsp:useBean id="actions" class="ru.rsreu.exchangethings.view.parameters.ActionBean" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +12,9 @@
     <h1>Введите логин и пароль
     </h1>
     <br/>
+
     <form method="POST" action="main" class="form_center">
-        <input type="hidden" value="login" name="command">
+        <input type="hidden" value="login" name=${actions.command}>
         <a>Login:</a>
         <br/> <input type="text" name="login">
         <br/>

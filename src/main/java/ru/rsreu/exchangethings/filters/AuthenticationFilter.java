@@ -1,8 +1,9 @@
 package ru.rsreu.exchangethings.filters;
 
+import ru.rsreu.exchangethings.view.parameters.ControlNames;
 import ru.rsreu.exchangethings.exceptions.AuthenticationException;
 import ru.rsreu.exchangethings.security.SecurityService;
-import ru.rsreu.exchangethings.security.token.TokenExist;
+import ru.rsreu.exchangethings.security.token.TokenStorage;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -16,7 +17,7 @@ import java.util.logging.Logger;
 
 public class AuthenticationFilter implements Filter {
     Logger logger = Logger.getLogger(this.getClass().getName());
-    TokenExist tokenService = SecurityService.instance;
+    TokenStorage tokenService = SecurityService.instance;
 
     private Object getToken(HttpServletRequest request) {
         return request
@@ -26,7 +27,7 @@ public class AuthenticationFilter implements Filter {
 
     private boolean isLoginCommand(ServletRequest request) {
         boolean isLoginCommand = false;
-        String paramCommand = request.getParameter("command");
+        String paramCommand = request.getParameter(ControlNames.CONTROL_COMMAND);
 
         if (paramCommand != null && paramCommand.equals("login"))
             isLoginCommand = true;
@@ -44,12 +45,12 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
 
         String token = (String) this.getToken(httpRequest);
-
         if ((token == null || !tokenService.tokenExist(token)) && (!this.isLoginCommand(request))) {
             logger.info("filter exception AuthenticationException");
             request.setAttribute("error", "Ошибка доступа");
             throw new AuthenticationException();
         }
+
         chain.doFilter(request, response);
     }
 

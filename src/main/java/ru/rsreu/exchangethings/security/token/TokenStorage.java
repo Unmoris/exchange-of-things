@@ -1,8 +1,11 @@
 package ru.rsreu.exchangethings.security.token;
 
-import ru.rsreu.exchangethings.security.token.TokenExist;
-import ru.rsreu.exchangethings.security.token.TokenGetId;
-import ru.rsreu.exchangethings.security.token.TokenRemover;
+public interface TokenStorage  {
+    public TokenInfo getTokenInfo(String token);
+    public void tokenRemove(String token);
+    public void addToken(String token, TokenInfo id);
+    public boolean tokenExist(String token);
 
-public interface TokenStorage  extends TokenRemover, TokenExist, TokenGetId, TokenAdder {
+
+
 }
