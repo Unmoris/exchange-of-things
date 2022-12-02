@@ -1,5 +1,7 @@
 package ru.rsreu.exchangethings.model.datalayer.entity;
 
+import java.sql.Date;
+
 public class UserEntity {
 
     private int userID;
@@ -9,12 +11,12 @@ public class UserEntity {
     private String login;
     private String password;
     private String isAuthorized;
-    private String lastLoginTime;
+    private Date lastLoginTime;
     private String userRole;
     private String userStatus;
 
     public UserEntity(int id, String surname, String name, String patronymic, String login, String password,
-                      String isAuthorized, String lastLoginTime, String userRole, String userStatus) {
+                      String isAuthorized, Date lastLoginTime, String userRole, String userStatus) {
         this.userID = id;
         this.surname = surname;
         this.name = name;
@@ -83,11 +85,11 @@ public class UserEntity {
         this.isAuthorized = isAuthorized;
     }
 
-    public String getLastLoginTime() {
+    public Date getLastLoginTime() {
         return lastLoginTime;
     }
 
-    public void setLastLoginTime(String lastLoginTime) {
+    public void setLastLoginTime(Date lastLoginTime) {
         this.lastLoginTime = lastLoginTime;
     }
 
