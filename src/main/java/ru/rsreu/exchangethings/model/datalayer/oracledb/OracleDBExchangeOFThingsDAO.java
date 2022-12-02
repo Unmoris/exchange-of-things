@@ -8,10 +8,7 @@ import ru.rsreu.exchangethings.model.datalayer.entity.ItemEntity;
 import ru.rsreu.exchangethings.model.datalayer.entity.RequestEntity;
 import ru.rsreu.exchangethings.model.datalayer.entity.UserEntity;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -82,9 +79,9 @@ public class OracleDBExchangeOFThingsDAO implements ExchangeOfThingsDAO {
     public List<ItemEntity> getHiddenItems(String itemStatus, int userId) throws SQLException {
         String query = QueriesProperties.getProperty("HiddenItems.request");
         PreparedStatement preparedStatement = this.getPreparedStatement(query);
-        ResultSet resultSet = preparedStatement.executeQuery();
         preparedStatement.setString(1, itemStatus);
         preparedStatement.setInt(2, userId);
+        ResultSet resultSet = preparedStatement.executeQuery();
         return this.getItemsFromQuery(resultSet);
     }
 
@@ -92,13 +89,61 @@ public class OracleDBExchangeOFThingsDAO implements ExchangeOfThingsDAO {
     public List<ItemEntity> getItemsForRequestsToUser(int userId, String requestStatus) throws SQLException {
         String query = QueriesProperties.getProperty("ItemsForRequestsToUser.request");
         PreparedStatement preparedStatement = this.getPreparedStatement(query);
-        ResultSet resultSet = preparedStatement.executeQuery();
         preparedStatement.setInt(1, userId);
         preparedStatement.setString(2, requestStatus);
+        ResultSet resultSet = preparedStatement.executeQuery();
         return this.getItemsFromQuery(resultSet);
     }
 
+    @Override
+    public void insertUser(int id, String surname, String name, String patronymic,
+                           String login, String password, String isAuthorized,
+                           String lastLoginTime, String userRole, String userStatus)  throws SQLException, ParseException  {
+        String query = QueriesProperties.getProperty("InsertUser.request");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1, id);
+        preparedStatement.setString(2, surname);
+        preparedStatement.setString(3, name);
+        preparedStatement.setString(4, patronymic);
+        preparedStatement.setString(5, login);
+        preparedStatement.setString(6, password);
+        preparedStatement.setString(7, isAuthorized);
+        preparedStatement.setDate(8, DateFormatter.getSimpleDateFormatTime(lastLoginTime));
+        preparedStatement.setString(9, userRole);
+        preparedStatement.setString(10, userStatus);
+        preparedStatement.executeUpdate();
+    }
 
+    @Override
+    public void insertItem(int id, String title, String image, String description, String publicationTime, int userId,
+                           String itemStatus, int countView) throws SQLException, ParseException {
+        String query = QueriesProperties.getProperty("InsertItem.request");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1, id);
+        preparedStatement.setString(2, title);
+        preparedStatement.setString(3, image);
+        preparedStatement.setString(4, description);
+        preparedStatement.setDate(5, DateFormatter.getSimpleDateFormatTime(publicationTime));
+        preparedStatement.setInt(6, userId);
+        preparedStatement.setString(7, itemStatus);
+        preparedStatement.setInt(8, countView);
+        preparedStatement.executeUpdate();
+
+    }
+
+    @Override
+    public void insertRequest(int id, String publicationTime, int requestStatus, String commentReceiver,
+                              int itemSender, int itemReceiver) throws SQLException, ParseException {
+        String query = QueriesProperties.getProperty("InsertRequest.request");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1, id);
+        preparedStatement.setDate(2, DateFormatter.getSimpleDateFormatTime(publicationTime));
+        preparedStatement.setInt(3, requestStatus);
+        preparedStatement.setString(4, commentReceiver);
+        preparedStatement.setInt(5, itemSender);
+        preparedStatement.setInt(5, itemReceiver);
+        preparedStatement.executeUpdate();
+    }
 
     private  List<UserEntity> getUsersFromQuery(ResultSet resultSet) throws SQLException {
         List<UserEntity> users = new ArrayList<>();
