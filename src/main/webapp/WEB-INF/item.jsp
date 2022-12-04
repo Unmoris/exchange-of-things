@@ -12,7 +12,7 @@
             Название: ${item.title} </br>
         </label>
         <label>
-            Описание ${item.description} </br>
+            Описание: ${item.description} </br>
         </label>
         <img src="images/${item.image}" width="189" height="100"> </br>
         <label>
@@ -22,7 +22,7 @@
             Владелец: ${item.owner.login} </br>
         </label>
         <label>
-            Колличество просмотров: ${item.countViewItem} </br>
+            Количество просмотров: ${item.countViewItem} </br>
         </label>
         <input type="hidden" name="id_item" value="${item.id}">
     </form>
