@@ -1,18 +1,20 @@
 package ru.rsreu.exchangethings.model.datalayer.entity;
 
+import java.sql.Date;
+
 public class ItemEntity {
 
     private int itemsID;
     private String title;
     private String image;
     private String description;
-    private String publicationTime;
-    private String userID;
+    private Date publicationTime;
+    private int userID;
     private String itemStatus;
-    private String countView;
+    private int countView;
 
-    public ItemEntity(int itemsID, String title, String image, String description, String publicationTime,
-                      String userID, String itemStatus, String countView) {
+    public ItemEntity(int itemsID, String title, String image, String description, Date publicationTime,
+                      int userID, String itemStatus, int countView) {
         this.itemsID = itemsID;
         this.title = title;
         this.image = image;
@@ -55,19 +57,19 @@ public class ItemEntity {
         this.description = description;
     }
 
-    public String getPublicationTime() {
+    public Date getPublicationTime() {
         return publicationTime;
     }
 
-    public void setPublicationTime(String publicationTime) {
+    public void setPublicationTime(Date publicationTime) {
         this.publicationTime = publicationTime;
     }
 
-    public String getUserID() {
+    public int getUserID() {
         return userID;
     }
 
-    public void setUserID(String userID) {
+    public void setUserID(int userID) {
         this.userID = userID;
     }
 
@@ -79,11 +81,11 @@ public class ItemEntity {
         this.itemStatus = itemStatus;
     }
 
-    public String getCountView() {
+    public int getCountView() {
         return countView;
     }
 
-    public void setCountView(String countView) {
+    public void setCountView(int countView) {
         this.countView = countView;
     }
 }
