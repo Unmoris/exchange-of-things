@@ -25,7 +25,7 @@ public class FrontController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
-       // processRequest(request, response);
+        processRequest(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) {

@@ -31,7 +31,7 @@ public class LoginHelper extends LoggerHelper {
             request.setAttribute("error", "Неверно введён логин");
             throw new IncludeParameterException();
         } else {
-            tokenRegistrar.registration(request, new TokenInfo(1, UserRoleEnum.USER));
+            tokenRegistrar.registration(request, new TokenInfo(1, UserRoleEnum.ADMIN));
             start.execute(request,response);
         }
     }

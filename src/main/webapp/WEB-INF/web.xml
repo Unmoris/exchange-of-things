@@ -16,6 +16,7 @@
 
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
+        <url-pattern>/input</url-pattern>
         <url-pattern>/user</url-pattern>
         <url-pattern>/admin</url-pattern>
         <url-pattern>/moderator</url-pattern>

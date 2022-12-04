@@ -7,13 +7,13 @@ import ru.rsreu.exchangethings.model.helper.HelperEnum;
 import ru.rsreu.exchangethings.view.pages.PageEnum;
 
 public enum UserControlEnum implements GetControl {
-    INFO(new ViewControl(PageEnum.MAIN.getView(), HelperEnum.USER_INFO.getHelper())),
-    MY_ITEMS(new ViewControl(PageEnum.MAIN.getView(), HelperEnum.USER_ITEMS.getHelper())),
-    EXCHANGE(new ViewControl(PageEnum.MAIN.getView(), HelperEnum.USER_EXCHANGES.getHelper())),
-    LIST_ITEMS(new ViewControl(PageEnum.MAIN.getView(), HelperEnum.USER_LIST_ITEMS.getHelper())),
+    INFO(new ViewControl(PageEnum.USER_MAIN.getView(), HelperEnum.USER_INFO.getHelper())),
+    MY_ITEMS(new ViewControl(PageEnum.USER_MAIN.getView(), HelperEnum.USER_ITEMS.getHelper())),
+    EXCHANGE(new ViewControl(PageEnum.USER_MAIN.getView(), HelperEnum.USER_EXCHANGES.getHelper())),
+    LIST_ITEMS(new ViewControl(PageEnum.USER_MAIN.getView(), HelperEnum.USER_LIST_ITEMS.getHelper())),
     ITEM_ADDING(new ViewControl(PageEnum.ADD_ITEM.getView())),
     CHOICE(new ViewControl(PageEnum.CHOOSE_ITEM_FOR_EXCHANGE.getView(), HelperEnum.USER_ITEMS.getHelper())),
-    EXCHANGE_ITEM(new ViewControl(PageEnum.MAIN.getView(), HelperEnum.LOGGER.getHelper())),
+    EXCHANGE_ITEM(new ViewControl(PageEnum.USER_MAIN.getView(), HelperEnum.LOGGER.getHelper())),
     ADD_ITEM(new ViewControl(PageEnum.SEND_REDIRECT_USER.getView(), HelperEnum.USER_LIST_ITEMS.getHelper(), HelperEnum.ADD_ITEM.getHelper())),
     INFO_ITEM(new ViewControl(PageEnum.INFO_ITEM.getView(), HelperEnum.ITEM_INFO.getHelper()));
     Control control;
