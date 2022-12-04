@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class MainServlet extends HttpServlet {
-    private final CommandControlFactory client = CommandControlFactory.instance;
+public class FrontController extends HttpServlet {
+    private final CommandControlFactory client = new CommandControlFactory();
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) {
         Control command = client.defineControl(request);
@@ -25,7 +25,7 @@ public class MainServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
-        processRequest(request, response);
+       // processRequest(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) {

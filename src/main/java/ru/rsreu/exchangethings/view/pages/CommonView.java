@@ -35,8 +35,8 @@ abstract public class CommonView implements Page {
 
     protected void sendRedirect(HttpServletRequest request, HttpServletResponse response) {
         try {
-            String path = request.getServletContext().getContextPath() + "/main";
-            System.out.println(path);
+            String path = request.getServletContext().getContextPath() + pathToPage;
+            logger.info("SEND REDIRECT TO: " + pathToPage);
             response.sendRedirect(path);
         } catch (IOException ioException) {
             logger.warning(ioException.getMessage());

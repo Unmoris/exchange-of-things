@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class UserFactory extends ControlFactory {
 
+
     @Override
     protected String getNameParameter()  {
         return ControlNames.CONTROL_USER;

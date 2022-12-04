@@ -12,9 +12,9 @@ import ru.rsreu.exchangethings.view.pages.PageEnum;
 public enum CommandsControlEnum implements GetControl {
     LOGIN(new ViewControl(PageEnum.MAIN.getView(), PageEnum.LOGIN.getView(), HelperEnum.LOGIN.getHelper())),
     INPUT(new ViewControl(PageEnum.LOGIN.getView(), HelperEnum.LOGGER.getHelper())),
-    LOGOUT(new ViewControl(new CommonForwardPage(""), HelperEnum.LOGGER.getHelper())),
+    LOGOUT(new ViewControl(PageEnum.LOGIN.getView(), HelperEnum.LOGGER.getHelper())),
     EMPTY(new ViewControl(PageEnum.EMPTY.getView(), HelperEnum.LOGGER.getHelper())),
-    USER(new FactoryControl(new UserFactory()), ControlNames.CONTROL_USER);
+    USER(new FactoryControl(new UserFactory()));
 
     private Control control;
 
@@ -22,10 +22,10 @@ public enum CommandsControlEnum implements GetControl {
         this.control = control;
     }
 
-    CommandsControlEnum(FactoryControl factoryAction, String nameParameter){
-        ChooserStandardCommand.addStandardControl(nameParameter, factoryAction);
-        this.control = factoryAction;
-    }
+//    CommandsControlEnum(FactoryControl factoryAction, String nameParameter) {
+//        ChooserEmptyControl.addStandardControl(nameParameter, factoryAction);
+//        this.control = factoryAction;
+//    }
 
     @Override
     public Control getControl() {

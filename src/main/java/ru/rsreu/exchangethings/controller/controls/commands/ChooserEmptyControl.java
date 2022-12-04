@@ -7,19 +7,20 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ChooserStandardCommand {
-    private ChooserStandardCommand() {
+public class ChooserEmptyControl {
+    private ChooserEmptyControl() {
     }
+
     private static Map<String, Control> controlHashMap = new HashMap<>();
 
     public static void addStandardControl(String controlName, Control control) {
         controlHashMap.put(controlName, control);
     }
 
-    private static Control chooseStandardControl(String controlName) {
+    private static Control chooseStandardControl(String controlName, Control emptyControl) {
         Control result = controlHashMap.get(controlName);
         if (result == null) {
-            result = CommandsControlEnum.EMPTY.getControl();
+            result = emptyControl;
         }
         return result;
     }
@@ -30,7 +31,7 @@ public class ChooserStandardCommand {
             do {
                 String parameter = parameters.nextElement();
                 if (controlHashMap.containsKey(parameter))
-                    return chooseStandardControl(parameter);
+                    return chooseStandardControl(parameter, CommandsControlEnum.EMPTY.getControl());
             } while (parameters.hasMoreElements());
         return CommandsControlEnum.EMPTY.getControl();
     }
