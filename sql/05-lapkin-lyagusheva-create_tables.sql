@@ -71,3 +71,6 @@ constraint status_request_status_fk foreign key (request_status) references requ
 constraint item_sender_request_item_fk foreign key (item_sender) references items(id),
 constraint item_receiver_request_item_fk foreign key (item_receiver) references items(id)
 );
+
+select * 
+from requests INNER JOIN items ON requests.item_sender = items.id JOIN items ON requests.item_receiver = items.id

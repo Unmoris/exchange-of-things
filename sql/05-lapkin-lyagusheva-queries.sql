@@ -1,7 +1,7 @@
 --ОТЧЕТЫ
 --Администраторы:
 --Просмотр авторизованных пользователей в данный момент:
-SELECT * FROM users 
+SELECT * FROM users JOIN user_type ON users.user_role = user_type.id JOIN user_status ON users.user_status = user_status.id 
 WHERE is_authorized = '1';
 --Просмотр неавторизованных пользователей в данный момент
 SELECT * FROM users 
@@ -73,17 +73,12 @@ WHERE id = 1;
 DELETE FROM requests
 WHERE id = 1;
 
-DELETE
-FROM
-    users
-WHERE
-    is_authorized = '1';
+----------------?????????????
+DELETE FROM users
+WHERE is_authorized = '1';
     
-DELETE
-FROM
-    items
-WHERE
-    item_status = '1';
+DELETE FROM items
+WHERE item_status = '1';
     
 UPDATE items
    SET publication_time = '07-11-2022'

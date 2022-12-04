@@ -15,16 +15,16 @@
                     <form>
                         <div>
                             <label>
-                                Логин : ${user.login} </br>
+                                Логин: ${user.login} </br>
                             </label>
                             <label>
                                 Имя: ${user.name} </br>
                             </label>
                             <label>
-                                Фамилия ${user.surname} </br>
+                                Фамилия: ${user.surname} </br>
                             </label>
                             <label>
-                                Отчество ${user.patronymic} </br>
+                                Отчество: ${user.patronymic} </br>
                             </label>
                             <label>
                                 Роль: ${user.userRole} </br>
@@ -39,16 +39,35 @@
             <c:when test="${menu_item == 'add_human'}">
             <div>
                 <form method="post">
+                    <label>
+                        Роль:
+                    </label>
                     <select name="user_role" required="required">
-                        <option value="">Администратор</option>
-                        <option value="1">Модератор</option>
-                        <option value="2">Пользователь</option>
-                    </select> </br>
-                    <input value="Фамилия"  name="surname" type="text" maxlength="50"/> </br>
-                    <input value="Имя"  name="name" type="text" maxlength="50"/> </br>
-                    <input value="Отчество"  name="patronymic" type="text" maxlength="50"/> </br>
-                    <input value="Логин"  name="login" type="text" maxlength="50"/> </br>
-                    <input value="Пароль"  name="password" type="text" maxlength="50"/> </br>
+                        <option value=""></option>
+                        <option value="1">Администратор</option>
+                        <option value="2">Модератор</option>
+                        <option value="3">Пользователь</option>
+                    </select> </br> </br>
+                    <label>
+                        Фамилия:
+                    </label>
+                    <input value=""  name="surname" type="text" maxlength="50"/> </br> </br>
+                    <label>
+                        Имя:
+                    </label>
+                    <input value=""  name="name" type="text" maxlength="50"/> </br> </br>
+                    <label>
+                        Отчество:
+                    </label>
+                    <input value=""  name="patronymic" type="text" maxlength="50"/> </br> </br>
+                    <label>
+                        Логин:
+                    </label>
+                    <input value=""  name="login" type="text" maxlength="50"/> </br> </br>
+                    <label>
+                        Пароль:
+                    </label>
+                    <input value=""  name="password" type="text" maxlength="50"/> </br> </br>
                     <button type="submit" name=${actions.admin} value="human_adding">
                         Добавить
                     </button> </br>
@@ -60,6 +79,32 @@
             <c:when test="${menu_item == 'edit_delete_human'}">
                 <c:forEach var="user" items="${users}">
                     <div>
+                        <form method="post">
+                            <label>
+                                Логин: ${user.login}  </br>
+                            </label>
+                                Имя: ${user.name} </br>
+                            </label>
+                            <label>
+                                Фамилия: ${user.surname} </br>
+                            </label>
+                            <label>
+                                Отчество: ${user.patronymic} </br>
+                            </label>
+                            <label>
+                                Роль: ${user.userRole} </br>
+                            </label>
+                            <label>
+                                Статус: ${user.userStatus} </br>
+                            </label>
+                            <button name=${actions.admin} type="submit" value="edit_human">
+                                Редактировать
+                            </button>
+                            <button name=${actions.admin} type="submit" value="delete_human">
+                                Удалить
+                            </button>
+                            <input type="hidden" name="id_user" value="${user.id}">
+                        </form>
                     </div>
                 </c:forEach>
             </c:when>
@@ -68,16 +113,16 @@
                     <div>
                         <form>
                             <label>
-                                Логин : ${user.login} </br>
+                                Логин: ${user.login} </br>
                             </label>
                             <label>
                                 Имя: ${user.name} </br>
                             </label>
                             <label>
-                                Фамилия ${user.surname} </br>
+                                Фамилия: ${user.surname} </br>
                             </label>
                             <label>
-                                Отчество ${user.patronymic} </br>
+                                Отчество: ${user.patronymic} </br>
                             </label>
                             <label>
                                 Роль: ${user.userRole} </br>

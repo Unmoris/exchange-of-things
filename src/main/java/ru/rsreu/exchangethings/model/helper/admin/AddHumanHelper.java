@@ -2,9 +2,9 @@ package ru.rsreu.exchangethings.model.helper.admin;
 
 import ru.rsreu.exchangethings.model.helper.MenuHelper;
 
-public class AddHuman extends MenuHelper{
+public class AddHumanHelper extends MenuHelper{
 
-    public AddHuman() {
+    public AddHumanHelper() {
         super("add_human");
     }
 }
