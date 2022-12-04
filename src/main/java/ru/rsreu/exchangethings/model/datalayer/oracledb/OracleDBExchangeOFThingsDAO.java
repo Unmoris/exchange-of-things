@@ -96,52 +96,99 @@ public class OracleDBExchangeOFThingsDAO implements ExchangeOfThingsDAO {
     }
 
     @Override
-    public void insertUser(int id, String surname, String name, String patronymic,
+    public void insertUser(String surname, String name, String patronymic,
                            String login, String password, String isAuthorized,
                            String lastLoginTime, String userRole, String userStatus)  throws SQLException, ParseException  {
         String query = QueriesProperties.getProperty("InsertUser.request");
         PreparedStatement preparedStatement = this.getPreparedStatement(query);
-        preparedStatement.setInt(1, id);
-        preparedStatement.setString(2, surname);
-        preparedStatement.setString(3, name);
-        preparedStatement.setString(4, patronymic);
-        preparedStatement.setString(5, login);
-        preparedStatement.setString(6, password);
-        preparedStatement.setString(7, isAuthorized);
-        preparedStatement.setDate(8, DateFormatter.getSimpleDateFormatTime(lastLoginTime));
-        preparedStatement.setString(9, userRole);
-        preparedStatement.setString(10, userStatus);
+        preparedStatement.setString(1, surname);
+        preparedStatement.setString(2, name);
+        preparedStatement.setString(3, patronymic);
+        preparedStatement.setString(4, login);
+        preparedStatement.setString(5, password);
+        preparedStatement.setString(6, isAuthorized);
+        preparedStatement.setDate(7, DateFormatter.getSimpleDateFormatTime(lastLoginTime));
+        preparedStatement.setString(8, userRole);
+        preparedStatement.setString(9, userStatus);
         preparedStatement.executeUpdate();
     }
 
     @Override
-    public void insertItem(int id, String title, String image, String description, String publicationTime, int userId,
-                           String itemStatus, int countView) throws SQLException, ParseException {
+    public void insertItem(String title, String image, String description, String publicationTime, int userId,
+                           String itemStatus) throws SQLException, ParseException {
         String query = QueriesProperties.getProperty("InsertItem.request");
         PreparedStatement preparedStatement = this.getPreparedStatement(query);
-        preparedStatement.setInt(1, id);
-        preparedStatement.setString(2, title);
-        preparedStatement.setString(3, image);
-        preparedStatement.setString(4, description);
-        preparedStatement.setDate(5, DateFormatter.getSimpleDateFormatTime(publicationTime));
-        preparedStatement.setInt(6, userId);
-        preparedStatement.setString(7, itemStatus);
-        preparedStatement.setInt(8, countView);
+        preparedStatement.setString(1, title);
+        preparedStatement.setString(2, image);
+        preparedStatement.setString(3, description);
+        preparedStatement.setDate(4, DateFormatter.getSimpleDateFormatTime(publicationTime));
+        preparedStatement.setInt(5, userId);
+        preparedStatement.setString(6, itemStatus);
         preparedStatement.executeUpdate();
 
     }
 
     @Override
-    public void insertRequest(int id, String publicationTime, int requestStatus, String commentReceiver,
+    public void insertRequest(String publicationTime, int requestStatus, String commentReceiver,
                               int itemSender, int itemReceiver) throws SQLException, ParseException {
         String query = QueriesProperties.getProperty("InsertRequest.request");
         PreparedStatement preparedStatement = this.getPreparedStatement(query);
-        preparedStatement.setInt(1, id);
-        preparedStatement.setDate(2, DateFormatter.getSimpleDateFormatTime(publicationTime));
-        preparedStatement.setInt(3, requestStatus);
-        preparedStatement.setString(4, commentReceiver);
-        preparedStatement.setInt(5, itemSender);
+        preparedStatement.setDate(1, DateFormatter.getSimpleDateFormatTime(publicationTime));
+        preparedStatement.setInt(2, requestStatus);
+        preparedStatement.setString(3, commentReceiver);
+        preparedStatement.setInt(4, itemSender);
         preparedStatement.setInt(5, itemReceiver);
+        preparedStatement.executeUpdate();
+    }
+
+    @Override
+    public void updateUserStatus(String userStatus, int userId) throws SQLException {
+        String query = QueriesProperties.getProperty("UpdateUserStatus.request");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setString(1, userStatus);
+        preparedStatement.setInt(2, userId);
+        preparedStatement.executeUpdate();
+    }
+
+    @Override
+    public void updateItemStatus(String itemStatus, int itemId) throws SQLException {
+        String query = QueriesProperties.getProperty("UpdateItemStatus.request");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setString(1, itemStatus);
+        preparedStatement.setInt(2, itemId);
+        preparedStatement.executeUpdate();
+    }
+
+    @Override
+    public void updateRequestStatus(String requestStatus, int requestId) throws SQLException {
+        String query = QueriesProperties.getProperty("UpdateRequestStatus.request");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setString(1, requestStatus);
+        preparedStatement.setInt(2, requestId);
+        preparedStatement.executeUpdate();
+    }
+
+    @Override
+    public void deleteUser(int userId) throws SQLException {
+        String query = QueriesProperties.getProperty("DeleteUser.request");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1, userId);
+        preparedStatement.executeUpdate();
+    }
+
+    @Override
+    public void deleteItem(int itemId) throws SQLException {
+        String query = QueriesProperties.getProperty("DeleteItem.request");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1, itemId);
+        preparedStatement.executeUpdate();
+    }
+
+    @Override
+    public void deleteRequest(int requestId) throws SQLException {
+        String query = QueriesProperties.getProperty("DeleteRequest.request");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1, requestId);
         preparedStatement.executeUpdate();
     }
 
