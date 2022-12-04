@@ -12,9 +12,9 @@ import java.util.List;
 
 public class ViewControl implements Control {
 
-    private Page page;
-    private Page errorPage;
-    private List<Helper> helpers = new LinkedList<>();
+    protected Page page;
+    protected Page errorPage;
+    protected List<Helper> helpers = new LinkedList<>();
 
     private void addHelpers(Helper... helpers) {
         this.helpers.addAll(Arrays.asList(helpers));

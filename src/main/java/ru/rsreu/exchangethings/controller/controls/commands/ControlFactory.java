@@ -38,7 +38,6 @@ abstract public class ControlFactory {
         String control = this.getControlByRequestParameter(request);
         if (control.isEmpty())
             control = this.getControlByRequestAttribute(request);
-//        String control = this.getControlByPath(request);
 
         if (control.isEmpty()) {
             // если команда не задана в текущем запросе
