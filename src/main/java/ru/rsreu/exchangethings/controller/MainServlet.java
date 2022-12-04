@@ -1,5 +1,6 @@
 package ru.rsreu.exchangethings.controller;
 
+import ru.rsreu.exchangethings.configuration.PathToDirectoryImages;
 import ru.rsreu.exchangethings.controller.controls.Control;
 import ru.rsreu.exchangethings.controller.controls.commands.CommandControlFactory;
 import ru.rsreu.exchangethings.view.parameters.ActionBean;
@@ -20,6 +21,7 @@ public class MainServlet extends HttpServlet {
     public void init() {
         ServletContext context = this.getServletContext();
         context.setAttribute("actions", new ActionBean());
+        PathToDirectoryImages.setPath(context.getRealPath("/"));
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) {

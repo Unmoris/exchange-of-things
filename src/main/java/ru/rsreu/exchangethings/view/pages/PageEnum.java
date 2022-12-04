@@ -7,7 +7,8 @@ public enum PageEnum {
     MAIN(new CommonForwardPage(JspResource.getProperty("main.path"))),
     LOGIN(new CommonForwardPage(JspResource.getProperty("login.path"))),
     USER(new CommonForwardPage(JspResource.getProperty("user.path"))),
-    ADD_ITEM(new CommonForwardPage(JspResource.getProperty("user-add-item.path")));
+    ADD_ITEM(new CommonForwardPage(JspResource.getProperty("user-add-item.path"))),
+    CHOOSE_ITEM_FOR_EXCHANGE(new CommonForwardPage(JspResource.getProperty("user-choose-item.path")));
 
     Page page;
 

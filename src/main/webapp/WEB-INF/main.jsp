@@ -6,7 +6,6 @@
     <jsp:include page="template/header/header.jsp"/>
 </head>
 <body>
-<h1>USER MENU</h1>
 <div>
     <c:import url="template/user-menu.jsp"/>
     <div>
@@ -46,9 +45,9 @@
                 <c:forEach var="item" items="${items}">
                     <div>
                         <form>
-                            \ <label>
-                            Название: ${item.title} </br>
-                        </label>
+                            <label>
+                                Название: ${item.title} </br>
+                            </label>
                             <label>
                                 Описание ${item.description} </br>
                             </label>
@@ -56,7 +55,7 @@
                             <label>
                                 Кол-во просмотров: ${item.countViewItem} </br>
                             </label>
-                            <button name=${actions.user} value="">
+                            <button name=${actions.user} value="HIDDEN_ITEM">
                                 <c:if test="${item.isHidden}">
                                     Открыть
                                 </c:if>
@@ -107,7 +106,7 @@
                                 Описание: ${item.description} </br>
                             </label>
                             <img src="images/${item.image}" width="189" height="100"></br>
-                            <button name="exhange" value="exhange_item">
+                            <button name=${actions.user} value="CHOICE" formmethod="post">
                                 Начать обмен
                             </button>
                             <input type="hidden" name="id_item" value="${item.id}">

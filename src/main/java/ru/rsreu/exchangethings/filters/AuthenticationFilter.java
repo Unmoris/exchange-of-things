@@ -19,6 +19,8 @@ public class AuthenticationFilter implements Filter {
     Logger logger = Logger.getLogger(this.getClass().getName());
     TokenStorage tokenService = SecurityService.instance;
 
+    String contour;
+
     private Object getToken(HttpServletRequest request) {
         return request
                 .getSession()
@@ -37,18 +39,19 @@ public class AuthenticationFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) {
-
+        contour = filterConfig.getInitParameter("contour");
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
-
-        String token = (String) this.getToken(httpRequest);
-        if ((token == null || !tokenService.tokenExist(token)) && (!this.isLoginCommand(request))) {
-            logger.info("filter exception AuthenticationException");
-            request.setAttribute("error", "Ошибка доступа");
-            throw new AuthenticationException();
+        if (!contour.equals("test")) {
+            String token = (String) this.getToken(httpRequest);
+            if ((token == null || !tokenService.tokenExist(token)) && (!this.isLoginCommand(request))) {
+                logger.info("filter exception AuthenticationException");
+                request.setAttribute("error", "Ошибка доступа");
+                throw new AuthenticationException();
+            }
         }
 
         chain.doFilter(request, response);

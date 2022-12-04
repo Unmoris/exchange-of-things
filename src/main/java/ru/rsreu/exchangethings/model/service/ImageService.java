@@ -1,5 +1,7 @@
 package ru.rsreu.exchangethings.model.service;
 
+import ru.rsreu.exchangethings.configuration.PathToDirectoryImages;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -10,7 +12,7 @@ import java.io.InputStream;
 public class ImageService {
     public static ImageService instance = new ImageService();
 
-    private static File directory = new File("D:\\images");
+    private static File directory = new File(PathToDirectoryImages.getPath());
 
     BufferedImage resizeImage(BufferedImage originalImage, int targetWidth, int targetHeight) {
         Image resultingImage = originalImage.getScaledInstance(targetWidth, targetHeight, Image.SCALE_DEFAULT);

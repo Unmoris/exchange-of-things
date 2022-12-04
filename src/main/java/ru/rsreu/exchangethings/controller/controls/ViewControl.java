@@ -33,6 +33,11 @@ public class ViewControl implements Control {
         this.addHelpers(helpers);
     }
 
+    public ViewControl(Page commonPage){
+        this.page = commonPage;
+        this.errorPage = commonPage;
+    }
+
 
     @Override
     public void control(HttpServletRequest request, HttpServletResponse response) {

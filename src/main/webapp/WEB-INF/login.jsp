@@ -12,7 +12,6 @@
     <h1>Введите логин и пароль
     </h1>
     <br/>
-
     <form method="POST" action="main" class="form_center">
         <input type="hidden" value="login" name=${actions.command}>
         <a>Login:</a>

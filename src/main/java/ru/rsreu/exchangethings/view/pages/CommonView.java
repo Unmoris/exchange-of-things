@@ -33,6 +33,16 @@ abstract public class CommonView implements Page {
         }
     }
 
+    protected void sendRedirect(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            String path = request.getServletContext().getContextPath() + "/main";
+            System.out.println(path);
+            response.sendRedirect(path);
+        } catch (IOException ioException) {
+            logger.warning(ioException.getMessage());
+        }
+    }
+
     protected void tryCatchIoException(RunCatheIoException executor) {
         try {
             executor.run();
