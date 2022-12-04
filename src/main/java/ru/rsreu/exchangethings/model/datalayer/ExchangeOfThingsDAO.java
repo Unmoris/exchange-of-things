@@ -25,15 +25,21 @@ public interface ExchangeOfThingsDAO {
     List<ItemEntity> getHiddenItems(String itemStatus, int userId) throws SQLException;
     //Просмотр заявок на его вещи
     List<ItemEntity> getItemsForRequestsToUser(int userId, String requestStatus) throws SQLException;
-    void insertUser(int id, String surname, String name, String patronymic,
+    void insertUser(String surname, String name, String patronymic,
                            String login, String password, String isAuthorized,
                            String lastLoginTime, String userRole, String userStatus)  throws SQLException, ParseException;
 
-    void insertItem(int id, String title, String image, String description, String publicationTime, int userId,
-                           String itemStatus, int countView) throws SQLException, ParseException;
+    void insertItem(String title, String image, String description, String publicationTime, int userId,
+                           String itemStatus) throws SQLException, ParseException;
 
-    void insertRequest(int id, String publicationTime, int requestStatus, String commentReceiver,
+    void insertRequest(String publicationTime, int requestStatus, String commentReceiver,
                        int itemSender, int itemReceiver) throws SQLException, ParseException;
+    void updateUserStatus(String userStatus, int userId) throws SQLException;
+    void updateItemStatus(String itemStatus, int itemId) throws SQLException;
+    void updateRequestStatus(String requestStatus, int requestId) throws SQLException;
+    void deleteUser(int userId) throws SQLException;
+    void deleteItem(int userId) throws SQLException;
+    void deleteRequest(int userId) throws SQLException;
 
 
 }
