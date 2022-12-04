@@ -1,6 +1,7 @@
 package ru.rsreu.exchangethings.model.helper;
 
 import ru.rsreu.exchangethings.model.helper.Items.AddNewItemHelper;
+import ru.rsreu.exchangethings.model.helper.Items.InfoItemHelper;
 import ru.rsreu.exchangethings.model.helper.login.LoginHelper;
 import ru.rsreu.exchangethings.model.helper.user.UserExchangesHelper;
 import ru.rsreu.exchangethings.model.helper.user.UserInfoHelper;
@@ -15,7 +16,8 @@ public enum HelperEnum {
     USER_ITEMS(new UserItemsHelper()),
     USER_EXCHANGES(new UserExchangesHelper()),
     ADD_ITEM(new AddNewItemHelper()),
-    USER_LIST_ITEMS(new ItemsListForUserHelper());
+    USER_LIST_ITEMS(new ItemsListForUserHelper()),
+    ITEM_INFO(new InfoItemHelper());
     private Helper helper;
 
     HelperEnum(Helper info) {

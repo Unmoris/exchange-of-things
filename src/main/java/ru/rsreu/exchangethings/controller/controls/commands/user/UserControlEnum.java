@@ -14,7 +14,8 @@ public enum UserControlEnum implements GetControl {
     ITEM_ADDING(new ViewControl(PageEnum.ADD_ITEM.getView())),
     CHOICE(new ViewControl(PageEnum.CHOOSE_ITEM_FOR_EXCHANGE.getView(), HelperEnum.USER_ITEMS.getHelper())),
     EXCHANGE_ITEM(new ViewControl(PageEnum.MAIN.getView(), HelperEnum.LOGGER.getHelper())),
-    ADD_ITEM(new ViewControl(PageEnum.MAIN.getView(), HelperEnum.USER_LIST_ITEMS.getHelper(), HelperEnum.ADD_ITEM.getHelper()));
+    ADD_ITEM(new ViewControl(PageEnum.SEND_REDIRECT_USER.getView(), HelperEnum.USER_LIST_ITEMS.getHelper(), HelperEnum.ADD_ITEM.getHelper())),
+    INFO_ITEM(new ViewControl(PageEnum.INFO_ITEM.getView(), HelperEnum.ITEM_INFO.getHelper()));
     Control control;
 
     UserControlEnum(Control control) {

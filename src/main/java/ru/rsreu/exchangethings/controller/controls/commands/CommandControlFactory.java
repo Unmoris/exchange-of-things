@@ -6,7 +6,7 @@ import ru.rsreu.exchangethings.view.parameters.ControlNames;
 import javax.servlet.http.HttpServletRequest;
 
 public class CommandControlFactory extends ControlFactory {
-    static public CommandControlFactory instance = new CommandControlFactory();
+
 
     @Override
     protected String getNameParameter() {
@@ -15,7 +15,7 @@ public class CommandControlFactory extends ControlFactory {
 
     @Override
     protected Control getEmptyControl(HttpServletRequest request) {
-        return ChooserStandardCommand.chooseStandardControl(request);
+        return CommandsControlEnum.EMPTY.getControl();
     }
 
     @Override

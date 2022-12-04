@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 abstract public class ControlFactory {
 
+
     protected Control getEmptyControl(HttpServletRequest request) {
         return LoggerControl.emptyControl;
     }
@@ -21,21 +22,24 @@ abstract public class ControlFactory {
         return control;
     }
 
+    protected String getControlByRequestAttribute(HttpServletRequest request) {
+        String control = "";
+        String paramCommand = (String) request.getAttribute(this.getNameParameter());
+        if (paramCommand != null)
+            control = paramCommand;
+        return control;
+    }
+
     abstract protected Control detectedControl(String control, HttpServletRequest request);
 
-    protected void getControlByPath(HttpServletRequest request){
-        String path = request.getRequestURI();
-        String contextPath = request.getContextPath() + '/';
-        String newPath = path.replace(contextPath,"");
-//        System.out.println(contextPath);
-//        System.out.println(path);
-//        System.out.println(newPath);
-    }
     public Control defineControl(HttpServletRequest request) {
-        this.getControlByPath(request);
-        Control current = getEmptyControl(request);
+        Control current = this.getEmptyControl(request);
         // извлечение имени команды из запроса
         String control = this.getControlByRequestParameter(request);
+        if (control.isEmpty())
+            control = this.getControlByRequestAttribute(request);
+//        String control = this.getControlByPath(request);
+
         if (control.isEmpty()) {
             // если команда не задана в текущем запросе
             return current;

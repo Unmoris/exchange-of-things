@@ -1,20 +1,17 @@
 package ru.rsreu.exchangethings.view.beans;
 
 import java.io.Serializable;
-import java.time.LocalTime;
+import java.sql.Date;
 
 public class ItemBean implements Serializable {
     private int id;
     private String title;
     private String image;
     private String description;
-
-
     private boolean isHidden;
     private UserBean owner;
     private String status;
-
-    private LocalTime publishTime;
+    private Date publishTime;
     private int countViewItem;
 
     public int getId() {
@@ -35,6 +32,16 @@ public class ItemBean implements Serializable {
         this.image = image;
         this.description = description;
         this.owner = owner;
+    }
+
+    public ItemBean(int id, String title, String image, String description, UserBean owner, Date publishTime, int countViewItem) {
+        this.id = id;
+        this.title = title;
+        this.image = image;
+        this.description = description;
+        this.owner = owner;
+        this.publishTime = publishTime;
+        this.countViewItem = countViewItem;
     }
 
     public void setId(int id) {
@@ -81,11 +88,11 @@ public class ItemBean implements Serializable {
         this.status = status;
     }
 
-    public LocalTime getPublishTime() {
+    public Date getPublishTime() {
         return publishTime;
     }
 
-    public void setPublishTime(LocalTime publishTime) {
+    public void setPublishTime(Date publishTime) {
         this.publishTime = publishTime;
     }
 

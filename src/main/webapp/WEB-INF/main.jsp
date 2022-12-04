@@ -63,6 +63,9 @@
                                     Открыть
                                 </c:if>
                             </button>
+                            <button name=${actions.user} value="info_item" formmethod="post">
+                                Посмотреть информацию о вещи
+                            </button>
                             <input type="hidden" name="id_item" value="${item.id}">
                         </form>
                     </div>
@@ -108,6 +111,9 @@
                             <img src="images/${item.image}" width="189" height="100"></br>
                             <button name=${actions.user} value="CHOICE" formmethod="post">
                                 Начать обмен
+                            </button>
+                            <button name=${actions.user} value="info_item" formmethod="post">
+                                Посмотреть информацию о вещи
                             </button>
                             <input type="hidden" name="id_item" value="${item.id}">
                         </form>
