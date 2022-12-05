@@ -12,7 +12,7 @@
         <c:choose>
             <c:when test="${menu_item == 'info'}">
                 <div>
-                    <form>
+                    <form method="post">
                         <div>
                             <label>
                                 Логин: ${user.login} </br>
@@ -111,7 +111,7 @@
             <c:when test="${menu_item == 'show_authorized_users'}">
                 <c:forEach var="user" items="${users}">
                     <div>
-                        <form>
+                        <form method="post">
                             <label>
                                 Логин: ${user.login} </br>
                             </label>

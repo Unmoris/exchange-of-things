@@ -7,6 +7,9 @@ import ru.rsreu.exchangethings.model.helper.admin.AuthorizedUsersHelper;
 import ru.rsreu.exchangethings.model.helper.admin.EditDeleteHumanHelper;
 import ru.rsreu.exchangethings.model.helper.admin.GetHumanByIdHelper;
 import ru.rsreu.exchangethings.model.helper.login.LoginHelper;
+import ru.rsreu.exchangethings.model.helper.moderator.AllExchangesHelper;
+import ru.rsreu.exchangethings.model.helper.moderator.AllItemsHelper;
+import ru.rsreu.exchangethings.model.helper.moderator.AllUsersHelper;
 import ru.rsreu.exchangethings.model.helper.user.UserExchangesHelper;
 import ru.rsreu.exchangethings.model.helper.user.UserInfoHelper;
 import ru.rsreu.exchangethings.model.helper.user.UserItemsHelper;
@@ -15,6 +18,7 @@ import ru.rsreu.exchangethings.model.mock.TestLogging;
 
 public enum HelperEnum {
     LOGIN(new LoginHelper(new TestLogging())),
+
     LOGGER(new LoggerHelper()),
     USER_INFO(new UserInfoHelper()),
     USER_ITEMS(new UserItemsHelper()),
@@ -25,7 +29,10 @@ public enum HelperEnum {
     EDIT_DELETE_HUMANS(new EditDeleteHumanHelper()),
     EDIT_HUMAN(new GetHumanByIdHelper()),
     SHOW_AUTHORIZED_HUMAN(new AuthorizedUsersHelper()),
-    ITEM_INFO(new InfoItemHelper());
+    ITEM_INFO(new InfoItemHelper()),
+    ALL_USERS(new AllUsersHelper()),
+    ALL_EXCHANGES(new AllExchangesHelper()),
+    ALL_ITEMS(new AllItemsHelper());
     private Helper helper;
 
     HelperEnum(Helper info) {

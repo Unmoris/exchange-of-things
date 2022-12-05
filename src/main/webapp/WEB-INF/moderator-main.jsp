@@ -12,7 +12,7 @@
     <c:choose>
       <c:when test="${menu_item == 'info'}">
         <div>
-          <form>
+          <form method="post">
             <div>
               <label>
                 Логин : ${user.login} </br>
@@ -41,7 +41,7 @@
         </form>
         <c:forEach var="item" items="${items}">
           <div>
-            <form>
+            <form method="post">
               <label>
                 Название: ${item.title} </br>
               </label>
@@ -52,16 +52,8 @@
               <label>
                 Кол-во просмотров: ${item.countViewItem} </br>
               </label>
-              <button name=${actions.user} value="HIDDEN_ITEM">
-                <c:if test="${item.isHidden}">
-                  Открыть
-                </c:if>
-                <c:if test="${not item.isHidden}">
-                  Открыть
-                </c:if>
-              </button>
-              <button name=${actions.user} value="info_item" formmethod="post">
-                Посмотреть информацию о вещи
+              <button name=${actions.moderator} value="delete_item">
+                Удалить
               </button>
               <input type="hidden" name="id_item" value="${item.id}">
             </form>
@@ -71,7 +63,7 @@
       <c:when test="${menu_item == 'exchanges'}">
         <c:forEach var="exchange" items="${exchanges}">
           <div>
-            <form>
+            <form method="post">
               <label>
                   ${exchange.id} </br>
               </label>
@@ -84,11 +76,14 @@
               <label>
                   ${exchange.comment} </br>
               </label>
-              <button name=${actions.user} value="exchange_item_approve">
-                Обменять
+              <button name=${actions.moderator} value="end_exchange">
+                Завершить
               </button>
-              <button name=${actions.user} value="exchange_item_not_approve">
+              <button name=${actions.moderator} value="cancel_exchange">
                 Отменить
+              </button>
+              <button name=${actions.moderator} value="delete_exchange">
+                Удалить
               </button>
               <input type="hidden" name="id_exchange" value="${exchange.id}">
             </form>
@@ -96,8 +91,33 @@
         </c:forEach>
       </c:when>
       <c:when test="${menu_item == 'users'}">
-        <c:forEach var="item" items="${users}">
+        <c:forEach var="user" items="${users}">
           <div>
+            <form method="post">
+              <label>
+                Логин: ${user.login} </br>
+              </label>
+              <label>
+                Имя: ${user.name} </br>
+              </label>
+              <label>
+                Фамилия: ${user.surname} </br>
+              </label>
+              <label>
+                Отчество: ${user.patronymic} </br>
+              </label>
+              <label>
+                Роль: ${user.userRole} </br>
+              </label>
+              <button name=${actions.moderator} value="USER_BLOCK">
+                <c:if test="${user.userStatus eq 'разблокирован'}">
+                  Заблокировать
+                </c:if>
+                <c:if test="${user.userStatus eq 'заблокирован'}">
+                  Разблокировать
+                </c:if>
+              </button>
+            </form>
           </div>
         </c:forEach>
       </c:when>

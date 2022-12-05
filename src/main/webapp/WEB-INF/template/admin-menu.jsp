@@ -3,7 +3,7 @@
 <jsp:useBean id="actions" class="ru.rsreu.exchangethings.view.parameters.ActionBean"/>
 <jsp:useBean id="user" class="ru.rsreu.exchangethings.view.beans.UserBean"/>
 <div>
-    <h1>ADMIN MENU</h1>
+    <h1>АДМИНИСТРАТОР</h1>
     <form method="post">
         <input type="hidden" name="${actions.command}" value="admin" >
         <button value="info" name=${actions.admin}>

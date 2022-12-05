@@ -7,10 +7,10 @@ import ru.rsreu.exchangethings.model.helper.HelperEnum;
 import ru.rsreu.exchangethings.view.pages.PageEnum;
 
 public enum ModeratorControlEnum implements GetControl {
-    INFO(new ViewControl(PageEnum.ADMIN_MAIN.getView(), HelperEnum.USER_INFO.getHelper())),
-    USERS(new ViewControl(PageEnum.ADMIN_MAIN.getView(), HelperEnum.USER_INFO.getHelper())),
-    EXCHANGES(new ViewControl(PageEnum.ADMIN_MAIN.getView(), HelperEnum.USER_INFO.getHelper())),
-    ITEMS(new ViewControl(PageEnum.ADMIN_MAIN.getView(), HelperEnum.USER_INFO.getHelper()));
+    INFO(new ViewControl(PageEnum.MODERATOR_MAIN.getView(), HelperEnum.USER_INFO.getHelper())),
+    USERS(new ViewControl(PageEnum.MODERATOR_MAIN.getView(), HelperEnum.ALL_USERS.getHelper())),
+    EXCHANGES(new ViewControl(PageEnum.MODERATOR_MAIN.getView(), HelperEnum.ALL_EXCHANGES.getHelper())),
+    ITEMS(new ViewControl(PageEnum.MODERATOR_MAIN.getView(), HelperEnum.ALL_ITEMS.getHelper()));
 
     Control control;
 
