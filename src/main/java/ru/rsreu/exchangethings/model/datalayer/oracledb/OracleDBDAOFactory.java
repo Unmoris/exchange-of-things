@@ -30,6 +30,8 @@ public class OracleDBDAOFactory extends DAOFactory {
 
     private void connected() throws ClassNotFoundException, SQLException {
         Locale.setDefault(Locale.ENGLISH);
+        Class.forName("oracle.jdbc.OracleDriver");
+        //DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
         String url = ConnectionResource.getProperty("db.url");
         String user = ConnectionResource.getProperty("db.user");
         String password = ConnectionResource.getProperty("db.password");
@@ -38,8 +40,16 @@ public class OracleDBDAOFactory extends DAOFactory {
     }
 
     @Override
-    public OracleDBExchangeOFThingsDAO getOracleDBExchangeOFThingsDAO() {
-        return new OracleDBExchangeOFThingsDAO(connection);
+    public UserDAOImpl getUserDAOImpl() {
+        return new UserDAOImpl(connection);
+    }
+    @Override
+    public ItemDAOImpl getItemDAOImpl() {
+        return new ItemDAOImpl(connection);
+    }
+    @Override
+    public RequestDAOImpl getRequestDAOImpl() {
+        return new RequestDAOImpl(connection);
     }
 
 }

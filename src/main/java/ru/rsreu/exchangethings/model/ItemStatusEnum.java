@@ -3,7 +3,7 @@ package ru.rsreu.exchangethings.model;
 public enum ItemStatusEnum {
     OPEN(1),
     HIDDEN(2),
-    ECHANGED(3),
+    EXCHANGED(3),
     BLOCKED(4);
     public final int order;
 

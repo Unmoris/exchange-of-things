@@ -1,7 +1,7 @@
 package ru.rsreu.exchangethings.model;
 
-public enum UserRoleEnum{
-    USER(1), MODERATOR(2), ADMIN(3);
+public enum UserRoleEnum {
+    ADMIN(1), MODERATOR(2), USER(3);
 
     public final int order;
 

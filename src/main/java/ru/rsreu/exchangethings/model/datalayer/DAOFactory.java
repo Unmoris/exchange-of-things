@@ -1,6 +1,8 @@
 package ru.rsreu.exchangethings.model.datalayer;
 
-import ru.rsreu.exchangethings.model.datalayer.oracledb.OracleDBExchangeOFThingsDAO;
+import ru.rsreu.exchangethings.model.datalayer.oracledb.ItemDAOImpl;
+import ru.rsreu.exchangethings.model.datalayer.oracledb.RequestDAOImpl;
+import ru.rsreu.exchangethings.model.datalayer.oracledb.UserDAOImpl;
 
 public abstract class DAOFactory {
     public static DAOFactory getInstance(DBType dbType) {
@@ -8,7 +10,9 @@ public abstract class DAOFactory {
         return result;
     }
 
-    public abstract OracleDBExchangeOFThingsDAO getOracleDBExchangeOFThingsDAO();
+    public abstract UserDAOImpl getUserDAOImpl();
+    public abstract ItemDAOImpl getItemDAOImpl ();
+    public abstract RequestDAOImpl getRequestDAOImpl();
 
 }
 

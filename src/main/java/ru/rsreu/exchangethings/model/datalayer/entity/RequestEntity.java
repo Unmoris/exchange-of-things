@@ -5,15 +5,15 @@ import java.sql.Date;
 public class RequestEntity {
     private int RequestID;
     private Date publicationTime;
-    private int requestStatusID;
+    private int requestStatus;
     private String commentReceiver;
     private int itemSenderID;
     private int itemReceiverID;
 
-    public RequestEntity(int requestID, Date publicationTime, int requestStatusID, String commentReceiver, int itemSenderID, int itemReceiverID) {
+    public RequestEntity(int requestID, Date publicationTime, int requestStatus, String commentReceiver, int itemSenderID, int itemReceiverID) {
         RequestID = requestID;
         this.publicationTime = publicationTime;
-        this.requestStatusID = requestStatusID;
+        this.requestStatus = requestStatus;
         this.commentReceiver = commentReceiver;
         this.itemSenderID = itemSenderID;
         this.itemReceiverID = itemReceiverID;
@@ -35,12 +35,12 @@ public class RequestEntity {
         this.publicationTime = publicationTime;
     }
 
-    public int getRequestStatusID() {
-        return requestStatusID;
+    public int getRequestStatus() {
+        return requestStatus;
     }
 
-    public void setRequestStatusID(int requestStatusID) {
-        this.requestStatusID = requestStatusID;
+    public void setRequestStatus(int requestStatus) {
+        this.requestStatus = requestStatus;
     }
 
     public String getCommentReceiver() {
@@ -65,5 +65,17 @@ public class RequestEntity {
 
     public void setItemReceiverID(int itemReceiverID) {
         this.itemReceiverID = itemReceiverID;
+    }
+
+    @Override
+    public String toString() {
+        return "RequestEntity{" +
+                "RequestID=" + RequestID +
+                ", publicationTime=" + publicationTime +
+                ", requestStatus=" + requestStatus +
+                ", commentReceiver='" + commentReceiver + '\'' +
+                ", itemSenderID=" + itemSenderID +
+                ", itemReceiverID=" + itemReceiverID +
+                '}';
     }
 }
