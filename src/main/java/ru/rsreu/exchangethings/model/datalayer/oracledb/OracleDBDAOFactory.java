@@ -30,6 +30,8 @@ public class OracleDBDAOFactory extends DAOFactory {
 
     private void connected() throws ClassNotFoundException, SQLException {
         Locale.setDefault(Locale.ENGLISH);
+        Class.forName("oracle.jdbc.OracleDriver");
+        //DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
         String url = ConnectionResource.getProperty("db.url");
         String user = ConnectionResource.getProperty("db.user");
         String password = ConnectionResource.getProperty("db.password");

@@ -21,10 +21,10 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
-    public List<ItemEntity> getItemsForExchange(String exchangeStatus) throws SQLException {
+    public List<ItemEntity> getItemsForExchange(int itemStatus) throws SQLException {
         String query = QueriesProperties.getProperty("ItemsForExchange.request");
         PreparedStatement preparedStatement = this.getPreparedStatement(query);
-        preparedStatement.setString(1, exchangeStatus);
+        preparedStatement.setInt(1, itemStatus);
         ResultSet resultSet = preparedStatement.executeQuery();
         return this.getItemsFromQuery(resultSet);
     }
@@ -38,13 +38,12 @@ public class ItemDAOImpl implements ItemDAO {
         return this.getItemsFromQuery(resultSet);
     }
 
-    //!!!!!!!!!!!!!!!!!!!!1request status
     @Override
-    public List<ItemEntity> getItemsForRequestsToUser(int userId, String requestStatus) throws SQLException {
+    public List<ItemEntity> getItemsForRequestsToUser(int userId, int requestStatus) throws SQLException {
         String query = QueriesProperties.getProperty("ItemsForRequestsToUser.request");
         PreparedStatement preparedStatement = this.getPreparedStatement(query);
         preparedStatement.setInt(1, userId);
-        preparedStatement.setString(2, requestStatus);
+        preparedStatement.setInt(2, requestStatus);
         ResultSet resultSet = preparedStatement.executeQuery();
         return this.getItemsFromQuery(resultSet);
     }

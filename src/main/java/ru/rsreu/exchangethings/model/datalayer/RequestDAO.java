@@ -16,5 +16,5 @@ public interface RequestDAO {
                        int itemSender, int itemReceiver) throws SQLException, ParseException;
 
     void updateRequestStatus(int requestStatus, int requestId) throws SQLException;
-    void deleteRequest(int userId) throws SQLException;
+    void deleteRequest(int requestId) throws SQLException;
 }

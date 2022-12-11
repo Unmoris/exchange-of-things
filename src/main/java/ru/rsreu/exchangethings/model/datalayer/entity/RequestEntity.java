@@ -66,4 +66,16 @@ public class RequestEntity {
     public void setItemReceiverID(int itemReceiverID) {
         this.itemReceiverID = itemReceiverID;
     }
+
+    @Override
+    public String toString() {
+        return "RequestEntity{" +
+                "RequestID=" + RequestID +
+                ", publicationTime=" + publicationTime +
+                ", requestStatus=" + requestStatus +
+                ", commentReceiver='" + commentReceiver + '\'' +
+                ", itemSenderID=" + itemSenderID +
+                ", itemReceiverID=" + itemReceiverID +
+                '}';
+    }
 }

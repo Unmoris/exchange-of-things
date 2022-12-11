@@ -8,11 +8,11 @@ import java.util.List;
 
 public interface ItemDAO {
     //Просмотр вещей, выставленных на обмен
-    List<ItemEntity> getItemsForExchange(String exchangeStatus) throws SQLException;
+    List<ItemEntity> getItemsForExchange(int itemStatus) throws SQLException;
     //Просмотр своих скрытых вещей
     List<ItemEntity> getHiddenItems(int itemStatus, int userId) throws SQLException;
     //Просмотр заявок на его вещи
-    List<ItemEntity> getItemsForRequestsToUser(int userId, String requestStatus) throws SQLException;
+    List<ItemEntity> getItemsForRequestsToUser(int userId, int requestStatus) throws SQLException;
 
 
     void insertItem(String title, String image, String description, String publicationTime, int userId,

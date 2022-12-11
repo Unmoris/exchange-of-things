@@ -88,4 +88,18 @@ public class ItemEntity {
     public void setCountView(int countView) {
         this.countView = countView;
     }
+
+    @Override
+    public String toString() {
+        return "ItemEntity{" +
+                "itemsID=" + itemsID +
+                ", title='" + title + '\'' +
+                ", image='" + image + '\'' +
+                ", description='" + description + '\'' +
+                ", publicationTime=" + publicationTime +
+                ", userID=" + userID +
+                ", itemStatus=" + itemStatus +
+                ", countView=" + countView +
+                '}';
+    }
 }

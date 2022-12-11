@@ -108,4 +108,20 @@ public class UserEntity {
     public void setUserStatus(int userStatus) {
         this.userStatus = userStatus;
     }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "userID=" + userID +
+                ", surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", isAuthorized='" + isAuthorized + '\'' +
+                ", lastLoginTime=" + lastLoginTime +
+                ", userRole=" + userRole +
+                ", userStatus=" + userStatus +
+                '}';
+    }
 }
