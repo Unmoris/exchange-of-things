@@ -38,8 +38,16 @@ public class OracleDBDAOFactory extends DAOFactory {
     }
 
     @Override
-    public OracleDBExchangeOFThingsDAO getOracleDBExchangeOFThingsDAO() {
-        return new OracleDBExchangeOFThingsDAO(connection);
+    public UserDAOImpl getUserDAOImpl() {
+        return new UserDAOImpl(connection);
+    }
+    @Override
+    public ItemDAOImpl getItemDAOImpl() {
+        return new ItemDAOImpl(connection);
+    }
+    @Override
+    public RequestDAOImpl getRequestDAOImpl() {
+        return new RequestDAOImpl(connection);
     }
 
 }

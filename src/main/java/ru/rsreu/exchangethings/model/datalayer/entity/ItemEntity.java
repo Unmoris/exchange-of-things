@@ -10,11 +10,11 @@ public class ItemEntity {
     private String description;
     private Date publicationTime;
     private int userID;
-    private String itemStatus;
+    private int itemStatus;
     private int countView;
 
     public ItemEntity(int itemsID, String title, String image, String description, Date publicationTime,
-                      int userID, String itemStatus, int countView) {
+                      int userID, int itemStatus, int countView) {
         this.itemsID = itemsID;
         this.title = title;
         this.image = image;
@@ -73,11 +73,11 @@ public class ItemEntity {
         this.userID = userID;
     }
 
-    public String getItemStatus() {
+    public int getItemStatus() {
         return itemStatus;
     }
 
-    public void setItemStatus(String itemStatus) {
+    public void setItemStatus(int itemStatus) {
         this.itemStatus = itemStatus;
     }
 

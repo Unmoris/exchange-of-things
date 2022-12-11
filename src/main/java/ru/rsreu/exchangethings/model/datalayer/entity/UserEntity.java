@@ -12,11 +12,11 @@ public class UserEntity {
     private String password;
     private String isAuthorized;
     private Date lastLoginTime;
-    private String userRole;
-    private String userStatus;
+    private int userRole;
+    private int userStatus;
 
     public UserEntity(int id, String surname, String name, String patronymic, String login, String password,
-                      String isAuthorized, Date lastLoginTime, String userRole, String userStatus) {
+                      String isAuthorized, Date lastLoginTime, int userRole, int userStatus) {
         this.userID = id;
         this.surname = surname;
         this.name = name;
@@ -93,19 +93,19 @@ public class UserEntity {
         this.lastLoginTime = lastLoginTime;
     }
 
-    public String getUserRole() {
+    public int getUserRole() {
         return userRole;
     }
 
-    public void setUserRole(String userRole) {
+    public void setUserRole(int userRole) {
         this.userRole = userRole;
     }
 
-    public String getUserStatus() {
+    public int getUserStatus() {
         return userStatus;
     }
 
-    public void setUserStatus(String userStatus) {
+    public void setUserStatus(int userStatus) {
         this.userStatus = userStatus;
     }
 }
