@@ -1,5 +1,8 @@
 package ru.rsreu.exchangethings.filters;
 
+import ru.rsreu.exchangethings.exceptions.AuthenticationException;
+import ru.rsreu.exchangethings.security.SecurityService;
+import ru.rsreu.exchangethings.security.token.TokenStorage;
 import ru.rsreu.exchangethings.view.parameters.ControlNames;
 
 import javax.servlet.Filter;
@@ -12,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 public class EmptyCommandFilter implements Filter {
+
+    TokenStorage tokenService = SecurityService.instance;
 
     private String getControlByRequestParameter(HttpServletRequest request, String nameParameter) {
         String control = "";
@@ -29,6 +34,12 @@ public class EmptyCommandFilter implements Filter {
         return commandPath[0];
     }
 
+    private Object getToken(HttpServletRequest request) {
+        return request
+                .getSession()
+                .getAttribute("token");
+    }
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -39,9 +50,21 @@ public class EmptyCommandFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String command = this.getControlByRequestParameter(httpRequest, ControlNames.CONTROL_COMMAND);
         if (command.isEmpty()) {
-            request.setAttribute(ControlNames.CONTROL_COMMAND, pathURI(httpRequest));
+            if (pathURI(httpRequest)
+                    .toUpperCase()
+                    .equals(
+                            tokenService
+                                    .getTokenInfo(this.getToken(httpRequest).toString())
+                                    .getUserRole()
+                                    .name()
+                    )
+            ) {
+                request.setAttribute(ControlNames.CONTROL_COMMAND, pathURI(httpRequest));
+            } else {
+                throw new AuthenticationException();
+            }
         }
-        chain.doFilter(request,response);
+        chain.doFilter(request, response);
     }
 
     @Override

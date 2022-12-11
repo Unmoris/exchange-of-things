@@ -7,4 +7,6 @@ public interface ControlNames {
 
     public static final String CONTROL_ADMIN = "admin_action";
 
+    public static final String CONTROL_MODERATOR= "moderator_actions";
+
 }

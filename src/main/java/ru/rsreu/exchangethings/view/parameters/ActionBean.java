@@ -5,7 +5,15 @@ public class ActionBean implements ControlNames {
 
     private String user = this.CONTROL_USER;
     private String admin = this.CONTROL_ADMIN;
+    private String moderator = this.CONTROL_MODERATOR;
 
+    public String getModerator() {
+        return moderator;
+    }
+
+    public void setModerator(String moderator) {
+        this.moderator = moderator;
+    }
 
     public String getCommand() {
         return command;

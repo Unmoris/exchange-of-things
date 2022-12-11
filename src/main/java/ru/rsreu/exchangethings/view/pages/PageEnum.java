@@ -5,7 +5,7 @@ import ru.rsreu.exchangethings.configuration.JspResource;
 public enum PageEnum {
     MAIN_PAGE_FOR_USERS(new StartPage("/user",
             "/admin",
-            "")
+            "/moderator")
     ),
     EMPTY(new CommonForwardPage(JspResource.getProperty("empty.path"))),
     USER_MAIN(new CommonForwardPage(JspResource.getProperty("user-main.path"))),
@@ -16,6 +16,8 @@ public enum PageEnum {
     CHOOSE_ITEM_FOR_EXCHANGE(new CommonForwardPage(JspResource.getProperty("user-choose-item.path"))),
     SEND_REDIRECT_USER(new CommonSendRedirectView("/user")),
     SEND_REDIRECT_ADMIN(new CommonSendRedirectView("/admin")),
+    SEND_REDIRECT_MODERATOR(new CommonSendRedirectView("/moderator")),
+    MODERATOR_MAIN(new CommonForwardPage(JspResource.getProperty("moderator-main-path"))),
     EDIT_HUMAN(new CommonForwardPage(JspResource.getProperty("edit-human.path"))),
     INFO_ITEM(new CommonForwardPage(JspResource.getProperty("item.path")));
 

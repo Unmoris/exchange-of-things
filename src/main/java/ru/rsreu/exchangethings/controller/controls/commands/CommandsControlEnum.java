@@ -4,6 +4,7 @@ import ru.rsreu.exchangethings.controller.controls.Control;
 import ru.rsreu.exchangethings.controller.controls.FactoryControl;
 import ru.rsreu.exchangethings.controller.controls.ViewControl;
 import ru.rsreu.exchangethings.controller.controls.commands.admin.AdminFactory;
+import ru.rsreu.exchangethings.controller.controls.commands.moderator.ModeratorFactory;
 import ru.rsreu.exchangethings.controller.controls.commands.user.UserFactory;
 import ru.rsreu.exchangethings.model.helper.HelperEnum;
 import ru.rsreu.exchangethings.view.pages.PageEnum;
@@ -14,6 +15,7 @@ public enum CommandsControlEnum implements GetControl {
     LOGOUT(new ViewControl(PageEnum.LOGIN.getView(), HelperEnum.LOGGER.getHelper())),
     EMPTY(new ViewControl(PageEnum.EMPTY.getView(), HelperEnum.LOGGER.getHelper())),
     USER(new FactoryControl(new UserFactory())),
+    MODERATOR(new FactoryControl(new ModeratorFactory())),
 
     ADMIN(new FactoryControl(new AdminFactory()));
 

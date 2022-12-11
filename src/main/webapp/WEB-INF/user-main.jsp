@@ -12,7 +12,7 @@
         <c:choose>
             <c:when test="${menu_item == 'info'}">
                 <div>
-                    <form>
+                    <form method="post">
                         <div>
                             <label>
                                 Логин : ${user.login} </br>
@@ -44,7 +44,7 @@
                 </form>
                 <c:forEach var="item" items="${items}">
                     <div>
-                        <form>
+                        <form method="post">
                             <label>
                                 Название: ${item.title} </br>
                             </label>
@@ -74,7 +74,7 @@
             <c:when test="${menu_item == 'exchange'}">
                 <c:forEach var="exchange" items="${exchanges}">
                     <div>
-                        <form>
+                        <form method="post">
                             <label>
                                     ${exchange.id} </br>
                             </label>
@@ -101,7 +101,7 @@
             <c:when test="${menu_item == 'list_items'}">
                 <c:forEach var="item" items="${items}">
                     <div>
-                        <form>
+                        <form method="post">
                             <label>
                                 Название: ${item.title} </br>
                             </label>

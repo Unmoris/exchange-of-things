@@ -4,7 +4,7 @@
 <jsp:useBean id="user" class="ru.rsreu.exchangethings.view.beans.UserBean"/>
 <jsp:useBean id="item" class="ru.rsreu.exchangethings.view.beans.ItemBean"/>
 <div>
-    <h1>USER MENU</h1>
+    <h1>МЕНЮ:</h1>
     <form method="post">
         <input type="hidden" name="${actions.command}" value="user" >
         <button value="info" name=${actions.user}>
