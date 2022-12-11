@@ -17,16 +17,16 @@
                     <form method="post">
                         <div>
                             <label>
-                                Логин : ${user.login} </br>
+                                Логин: ${user.login} </br>
                             </label>
                             <label>
                                 Имя: ${user.name} </br>
                             </label>
                             <label>
-                                Фамилия ${user.surname} </br>
+                                Фамилия: ${user.surname} </br>
                             </label>
                             <label>
-                                Отчество ${user.patronymic} </br>
+                                Отчество: ${user.patronymic} </br>
                             </label>
                             <label>
                                 Роль: ${user.userRole} </br>
@@ -62,7 +62,7 @@
                                     Открыть
                                 </c:if>
                                 <c:if test="${not item.isHidden}">
-                                    Открыть
+                                    Закрыть
                                 </c:if>
                             </button>
                             <button name=${actions.user} value="info_item" formmethod="post">

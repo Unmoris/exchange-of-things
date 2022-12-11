@@ -34,7 +34,7 @@ button {
     width: 160px;
     align-items: center;
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     margin-right: 20px;
     margin-left: 20px;
 }
@@ -50,18 +50,44 @@ button[value="enter"]{
     margin-top: 10px;
 }
 
-/*button[value="item_adding"] {
-    color: #fff;
-    background-color: #8f8f8f;
+label{
     border: none;
-    /*height: 32px;*/
-    /*height: auto;
+    height: 160px;
     font-family: 'Oswald', sans-serif;
-    /*width: 60px;*/
-    /*width: auto;
+    width: 160px;
     align-items: center;
     margin-top: 10px;
-}*/
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    line-height: 20px;
+    text-align: right; /* Выравниваем по правому краю */
+    font-size: medium;
+}
+
+img{
+    border: none;
+    height: 160px;
+    font-family: 'Oswald', sans-serif;
+    width: 160px;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    line-height: 20px;
+    text-align: right; /* Выравниваем по правому краю */
+    font-size: medium;
+}
+
+/*
+можно юзануть для редактировать/удалить
+    text-align: right; /* Выравниваем по правому краю */
+/*float: left;  */
+
+button[value="item_adding"] {
+    background-color: #1b9f72;
+}
 
 textarea {
     font-size: 1.2em;
