@@ -3,9 +3,11 @@
 <jsp:useBean id="actions" class="ru.rsreu.exchangethings.view.parameters.ActionBean"/>
 <jsp:useBean id="user" class="ru.rsreu.exchangethings.view.beans.UserBean"/>
 <jsp:useBean id="item" class="ru.rsreu.exchangethings.view.beans.ItemBean"/>
+<!DOCTYPE html>
 <html>
 <head>
     <jsp:include page="template/header/header.jsp"/>
+    <jsp:include page="template/header/meta.jsp"/>
 </head>
 <body>
 <div>

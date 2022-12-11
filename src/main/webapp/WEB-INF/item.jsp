@@ -1,8 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <jsp:include page="template/header/header.jsp"/>
+    <jsp:include page="template/header/meta.jsp"/>
 </head>
 <body>
 <c:import url="template/user-menu.jsp"/>

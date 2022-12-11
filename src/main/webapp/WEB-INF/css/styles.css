@@ -1,7 +1,8 @@
 body {
     color: #8f8f8f;
     font: 12px Tahoma, sans-serif;
-    background-color: #f8f8f8;
+    /*background-color: #f8f8f8;*/
+    background-color: #c9fac9;
     border-top: 5px solid #7e7e7e;
     margin: 0;
 }
@@ -28,11 +29,39 @@ button {
     color: #fff;
     background-color: #29c5e6;
     border: none;
-    height: 32px;
+    height: 40px;
     font-family: 'Oswald', sans-serif;
-    width: 60px;
+    width: 160px;
     align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+    margin-left: 20px;
 }
+
+button[value="enter"]{
+    color: #fff;
+    background-color: #8118b2;
+    border: none;
+    height: 40px;
+    font-family: 'Oswald', sans-serif;
+    width: 160px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/*button[value="item_adding"] {
+    color: #fff;
+    background-color: #8f8f8f;
+    border: none;
+    /*height: 32px;*/
+    /*height: auto;
+    font-family: 'Oswald', sans-serif;
+    /*width: 60px;*/
+    /*width: auto;
+    align-items: center;
+    margin-top: 10px;
+}*/
 
 textarea {
     font-size: 1.2em;
