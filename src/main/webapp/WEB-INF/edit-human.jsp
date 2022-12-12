@@ -1,9 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="actions" class="ru.rsreu.exchangethings.view.parameters.ActionBean"/>
+<!DOCTYPE html>
 <html>
 <head>
     <jsp:include page="template/header/header.jsp"/>
+    <jsp:include page="template/header/meta.jsp"/>
 </head>
 <body>
 <div>

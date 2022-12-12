@@ -20,7 +20,7 @@
         <a>Password:</a>
         <br/> <input type="password" name="password"/>
         <br/>
-        <button type="submit">
+        <button type="submit" value="enter">
             Войти
         </button>
         <c:if test="${not empty error}">

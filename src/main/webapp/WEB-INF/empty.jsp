@@ -6,9 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" isErrorPage="true" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Title</title>
+    <jsp:include page="template/header/meta.jsp"/>
 </head>
 <body>
 <h1>Пустая страница</h1>

@@ -1,9 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="actions" class="ru.rsreu.exchangethings.view.parameters.ActionBean"/>
+<!DOCTYPE html>
 <html>
 <head>
     <jsp:include page="template/header/header.jsp"/>
+    <jsp:include page="template/header/meta.jsp"/>
 </head>
 <body>
 <div>
@@ -15,16 +17,16 @@
                     <form method="post">
                         <div>
                             <label>
-                                Логин : ${user.login} </br>
+                                Логин: ${user.login} </br>
                             </label>
                             <label>
                                 Имя: ${user.name} </br>
                             </label>
                             <label>
-                                Фамилия ${user.surname} </br>
+                                Фамилия: ${user.surname} </br>
                             </label>
                             <label>
-                                Отчество ${user.patronymic} </br>
+                                Отчество: ${user.patronymic} </br>
                             </label>
                             <label>
                                 Роль: ${user.userRole} </br>
@@ -60,7 +62,7 @@
                                     Открыть
                                 </c:if>
                                 <c:if test="${not item.isHidden}">
-                                    Открыть
+                                    Закрыть
                                 </c:if>
                             </button>
                             <button name=${actions.user} value="info_item" formmethod="post">
