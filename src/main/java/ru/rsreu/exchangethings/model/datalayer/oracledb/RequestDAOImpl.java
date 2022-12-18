@@ -16,18 +16,42 @@ import java.util.List;
 
 public class RequestDAOImpl implements RequestDAO {
     private Connection connection;
+
     public RequestDAOImpl(Connection connection) {
         this.connection = connection;
     }
 
     @Override
-    public List<RequestEntity> getCanceledRequests(int requestStatus) throws SQLException {
+    public List<RequestEntity> getRequestsByStatus(int requestStatus) throws SQLException {
         String query = QueriesProperties.getProperty("CanceledRequests.request");
         PreparedStatement preparedStatement = this.getPreparedStatement(query);
         preparedStatement.setInt(1, requestStatus);
         ResultSet resultSet = preparedStatement.executeQuery();
         return this.getRequestsFromQuery(resultSet);
     }
+
+    @Override
+    public List<RequestEntity> getRequestsByUserIdAndStatus(int userId, int requestStatus) throws SQLException {
+        String query = QueriesProperties.getProperty("SelectRequestsByUserIdAndStatus");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1, userId);
+        preparedStatement.setInt(2, requestStatus);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        return this.getRequestsFromQuery(resultSet);
+    }
+
+    @Override
+    public RequestEntity getRequestById(int requestStatus) throws SQLException {
+        String query = QueriesProperties.getProperty("SelectRequestsById");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1, requestStatus);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        return this.getRequestsFromQuery(resultSet)
+                .stream()
+                .findFirst()
+                .get();
+    }
+
 
     @Override
     public List<RequestEntity> getRequestsFromPeriod(String firstPublicationTime, String secondPublicationTime) throws SQLException, ParseException {

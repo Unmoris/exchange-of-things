@@ -31,9 +31,9 @@ public class LoginHelper extends LoggerHelper {
         UserBean userBean;
         try {
             userBean = userService.login(login, password);
-            tokenRegistrar.registration(request, new TokenInfo(1, UserRoleEnum.valueOf(userBean.getUserRole().toUpperCase())));
+            tokenRegistrar.registration(request, new TokenInfo(userBean.getId(), UserRoleEnum.getRole(userBean.getUserRole())));
         } catch (Exception e) {
-            request.setAttribute("error", "Неверно введён логин");
+            request.setAttribute("error", "Ошибка авторизации");
             throw new IncludeParameterException();
         }
     }

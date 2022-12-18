@@ -1,5 +1,8 @@
 package ru.rsreu.exchangethings.view.beans;
 
+import ru.rsreu.exchangethings.model.ItemStatusEnum;
+import ru.rsreu.exchangethings.model.datalayer.entity.ItemEntity;
+
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -43,7 +46,26 @@ public class ItemBean implements Serializable {
         this.publishTime = publishTime;
         this.countViewItem = countViewItem;
     }
+    public ItemBean(ItemEntity itemEntity, UserBean owner){
+        this.id = itemEntity.getItemsID();
+        this.title = itemEntity.getTitle();
+        this.image = itemEntity.getImage();
+        this.description = itemEntity.getDescription();
+        this.owner = owner;
+        this.isHidden = ItemStatusEnum.getStatus(itemEntity.getItemStatus()) == ItemStatusEnum.HIDDEN;
+        this.publishTime = itemEntity.getPublicationTime();
+        this.countViewItem = itemEntity.getCountView();
+    }
 
+    public ItemBean(ItemEntity itemEntity){
+        this.id = itemEntity.getItemsID();
+        this.title = itemEntity.getTitle();
+        this.image = itemEntity.getImage();
+        this.isHidden = ItemStatusEnum.getStatus(itemEntity.getItemStatus()) == ItemStatusEnum.HIDDEN;
+        this.description = itemEntity.getDescription();
+        this.publishTime = itemEntity.getPublicationTime();
+        this.countViewItem = itemEntity.getCountView();
+    }
     public void setId(int id) {
         this.id = id;
     }

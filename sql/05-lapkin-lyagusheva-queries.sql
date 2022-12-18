@@ -49,6 +49,11 @@ VALUES (requests_id.NEXTVAL, '07-11-2022', 1, 'Обменяю вещь', 1,  4);
 UPDATE users
    SET user_status = '2'
  WHERE id = 1;
+ 
+ UPDATE users
+   SET user_role = 1
+ WHERE id = 1;
+ 
  --Изменение статуса заявки
 UPDATE requests
    SET request_status = '2'

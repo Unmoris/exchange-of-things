@@ -29,6 +29,11 @@
                     Обменять эту вещь
                 </button>
                 <input type="hidden" name="id_item" value="${item.id}">
+                <label>
+                    Комментарий:
+                </label>
+                <input id="comment" type="text" name="comment">
+                <input id="id_exchange" type="hidden" name="id_exchange" value="${id_exchange}">
             </form>
         </div>
     </c:forEach>

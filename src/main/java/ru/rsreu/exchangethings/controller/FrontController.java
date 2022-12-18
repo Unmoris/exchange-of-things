@@ -9,11 +9,12 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
 
 public class FrontController extends HttpServlet {
     private final CommandControlFactory client = new CommandControlFactory();
 
-    private void processRequest(HttpServletRequest request, HttpServletResponse response) {
+    private void processRequest(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         Control command = client.defineControl(request);
         command.control(request, response);
     }
@@ -24,11 +25,11 @@ public class FrontController extends HttpServlet {
         PathToDirectoryImages.setPath(context.getRealPath("/"));
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         processRequest(request, response);
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         processRequest(request, response);
     }
 

@@ -1,6 +1,6 @@
 package ru.rsreu.exchangethings.model.mock;
 
-import ru.rsreu.exchangethings.view.beans.ExchangeBean;
+import ru.rsreu.exchangethings.view.beans.RequestBean;
 import ru.rsreu.exchangethings.view.beans.ItemBean;
 import ru.rsreu.exchangethings.view.beans.UserBean;
 
@@ -22,8 +22,8 @@ public class GetMockData {
                 new UserBean(2, "m.lyagusheva", "Маша", "Лягушева", "Алексеевна", "1", "Пользователь", "разблокирован"));
     }
 
-    static public List<ExchangeBean> getExchangeBean() {
-        return Arrays.asList(new ExchangeBean(1, LocalDate.now().toString(), "1", "1", new ItemBean(), new ItemBean()), new ExchangeBean(1, LocalDate.now().toString(), "1", "1", new ItemBean(), new ItemBean()));
+    static public List<RequestBean> getExchangeBean() {
+        return Arrays.asList(new RequestBean(1, LocalDate.now().toString(), "1", "1", new ItemBean(), new ItemBean()), new RequestBean(1, LocalDate.now().toString(), "1", "1", new ItemBean(), new ItemBean()));
     }
 
 
