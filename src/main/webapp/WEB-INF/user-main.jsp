@@ -57,16 +57,18 @@
                             <label>
                                 Кол-во просмотров: ${item.countViewItem} </br>
                             </label>
-                            <button name=${actions.user} value="HIDDEN_ITEM">
-                                <c:if test="${item.isHidden}">
+                            <c:if test="${item.isHidden}">
+                                <button name=${actions.user} value="OPEN_ITEM">
                                     Открыть
-                                </c:if>
-                                <c:if test="${not item.isHidden}">
-                                    Закрыть
-                                </c:if>
-                            </button>
+                                </button>
+                            </c:if>
+                            <c:if test="${not item.isHidden}">
+                                <button name=${actions.user} value="HIDDEN_ITEM">
+                                    Скрыть
+                                </button>
+                            </c:if>
                             <button name=${actions.user} value="info_item" formmethod="post">
-                                Посмотреть информацию о вещи
+                                Подробнее
                             </button>
                             <input type="hidden" name="id_item" value="${item.id}">
                         </form>
@@ -78,16 +80,13 @@
                     <div>
                         <form method="post">
                             <label>
-                                    ${exchange.id} </br>
+                                Время публикации: ${exchange.timePublish} </br>
                             </label>
+                                <%--                            <label>--%>
+                                <%--                                    ${exchange.requestStatus} </br>--%>
+                                <%--                            </label>--%>
                             <label>
-                                    ${exchange.timePublish} </br>
-                            </label>
-                            <label>
-                                    ${exchange.requestStatus} </br>
-                            </label>
-                            <label>
-                                    ${exchange.comment} </br>
+                                Комментарий: ${exchange.comment} </br>
                             </label>
                             <button name=${actions.user} value="exchange_item_approve">
                                 Обменять
@@ -115,7 +114,7 @@
                                 Начать обмен
                             </button>
                             <button name=${actions.user} value="info_item" formmethod="post">
-                                Посмотреть информацию о вещи
+                                Подробнее
                             </button>
                             <input type="hidden" name="id_item" value="${item.id}">
                         </form>

@@ -1,5 +1,9 @@
 package ru.rsreu.exchangethings.view.beans;
 
+import ru.rsreu.exchangethings.model.UserRoleEnum;
+import ru.rsreu.exchangethings.model.UserStatusEnum;
+import ru.rsreu.exchangethings.model.datalayer.entity.UserEntity;
+
 import java.io.Serializable;
 
 public class UserBean implements Serializable {
@@ -13,7 +17,7 @@ public class UserBean implements Serializable {
     private String userRole;
     private String userStatus;
 
-    public UserBean(Integer id, String login, String name, String surname, String patronymic,  String isAuthorized, String userRole, String userStatus) {
+    public UserBean(Integer id, String login, String name, String surname, String patronymic, String isAuthorized, String userRole, String userStatus) {
         this.id = id;
         this.login = login;
         this.name = name;
@@ -32,6 +36,16 @@ public class UserBean implements Serializable {
         patronymic = null;
         userRole = null;
         userStatus = null;
+    }
+
+    public UserBean(UserEntity userEntity) {
+        id = userEntity.getUserID();
+        login = userEntity.getLogin();
+        name = userEntity.getName();
+        surname = userEntity.getSurname();
+        patronymic = userEntity.getPatronymic();
+        userRole = UserRoleEnum.getRole(userEntity.getUserRole()).publicName;
+        userStatus = UserStatusEnum.getStatus(userEntity.getUserStatus()).publicName;
     }
 
     public Integer getId() {
@@ -74,9 +88,13 @@ public class UserBean implements Serializable {
         this.patronymic = patronymic;
     }
 
-    public String getIsAuthorized() { return isAuthorized; }
+    public String getIsAuthorized() {
+        return isAuthorized;
+    }
 
-    public void setIsAuthorized(String isAuthorized) { this.isAuthorized = isAuthorized; }
+    public void setIsAuthorized(String isAuthorized) {
+        this.isAuthorized = isAuthorized;
+    }
 
     public String getUserRole() {
         return userRole;

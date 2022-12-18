@@ -72,5 +72,5 @@ constraint item_sender_request_item_fk foreign key (item_sender) references item
 constraint item_receiver_request_item_fk foreign key (item_receiver) references items(id)
 );
 
-select * 
-from requests INNER JOIN items ON requests.item_sender = items.id JOIN items ON requests.item_receiver = items.id
+--select * 
+--from requests INNER JOIN items ON requests.item_sender = items.id JOIN items ON requests.item_receiver = items.id

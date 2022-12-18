@@ -2,6 +2,7 @@ package ru.rsreu.exchangethings.model.datalayer.oracledb;
 
 import ru.rsreu.exchangethings.configuration.EntitiesResource;
 import ru.rsreu.exchangethings.configuration.QueriesProperties;
+import ru.rsreu.exchangethings.model.UserRoleEnum;
 import ru.rsreu.exchangethings.model.datalayer.DateFormatter;
 import ru.rsreu.exchangethings.model.datalayer.UserDAO;
 import ru.rsreu.exchangethings.model.datalayer.entity.UserEntity;
@@ -16,6 +17,7 @@ import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
     private Connection connection;
+
     public UserDAOImpl(Connection connection) {
         this.connection = connection;
     }
@@ -50,7 +52,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public void insertUser(String surname, String name, String patronymic,
                            String login, String password, String isAuthorized,
-                           String lastLoginTime, int userRole, int userStatus)  throws SQLException, ParseException  {
+                           String lastLoginTime, int userRole, int userStatus) throws SQLException, ParseException {
         String query = QueriesProperties.getProperty("InsertUser.request");
         PreparedStatement preparedStatement = this.getPreparedStatement(query);
         preparedStatement.setString(1, surname);
@@ -82,24 +84,49 @@ public class UserDAOImpl implements UserDAO {
         preparedStatement.executeUpdate();
     }
 
-    private  List<UserEntity> getUsersFromQuery(ResultSet resultSet) throws SQLException {
+    @Override
+    public UserEntity loginUser(String login, String password) throws SQLException {
+        String query = QueriesProperties.getProperty("Login.request");
+        PreparedStatement preparedStatementUsers = this.getPreparedStatement(query);
+        preparedStatementUsers.setString(1, login);
+        preparedStatementUsers.setString(2, password);
+        ResultSet resultSet = preparedStatementUsers.executeQuery();
+        resultSet.next();
+        return this.getUserEntity(resultSet);
+    }
+
+    @Override
+    public UserEntity getUserById(int id) throws SQLException {
+        String query = QueriesProperties.getProperty("GetUserById.request");
+        PreparedStatement preparedStatementUsers = this.getPreparedStatement(query);
+        preparedStatementUsers.setInt(1, id);
+        ResultSet resultSet = preparedStatementUsers.executeQuery();
+        resultSet.next();
+        return this.getUserEntity(resultSet);
+    }
+
+    private List<UserEntity> getUsersFromQuery(ResultSet resultSet) throws SQLException {
         List<UserEntity> users = new ArrayList<>();
         while (resultSet.next()) {
-            UserEntity user =
-                    new UserEntity(resultSet.getInt(EntitiesResource.getProperty("id")),
-                            resultSet.getString(EntitiesResource.getProperty("surname")),
-                            resultSet.getString(EntitiesResource.getProperty("name")),
-                            resultSet.getString(EntitiesResource.getProperty("patronymic")),
-                            resultSet.getString(EntitiesResource.getProperty("login")),
-                            resultSet.getString(EntitiesResource.getProperty("password")),
-                            resultSet.getString(EntitiesResource.getProperty("is_authorized")),
-                            resultSet.getDate(EntitiesResource.getProperty("last_login_time")),
-                            resultSet.getInt(EntitiesResource.getProperty("user_role")),
-                            resultSet.getInt(EntitiesResource.getProperty("user_status")));
+            UserEntity user = this.getUserEntity(resultSet);
             users.add(user);
         }
         return users;
     }
+
+    private UserEntity getUserEntity(ResultSet resultSet) throws SQLException {
+        return new UserEntity(resultSet.getInt(EntitiesResource.getProperty("id")),
+                resultSet.getString(EntitiesResource.getProperty("surname")),
+                resultSet.getString(EntitiesResource.getProperty("name")),
+                resultSet.getString(EntitiesResource.getProperty("patronymic")),
+                resultSet.getString(EntitiesResource.getProperty("login")),
+                resultSet.getString(EntitiesResource.getProperty("password")),
+                resultSet.getString(EntitiesResource.getProperty("is_authorized")),
+                resultSet.getDate(EntitiesResource.getProperty("last_login_time")),
+                resultSet.getInt(EntitiesResource.getProperty("user_role")),
+                resultSet.getInt(EntitiesResource.getProperty("user_status")));
+    }
+
     private PreparedStatement getPreparedStatement(String sqlQuery) {
         PreparedStatement preparedStatement = null;
         try {

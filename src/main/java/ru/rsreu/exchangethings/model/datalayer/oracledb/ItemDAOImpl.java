@@ -16,15 +16,17 @@ import java.util.List;
 
 public class ItemDAOImpl implements ItemDAO {
     private Connection connection;
+
     public ItemDAOImpl(Connection connection) {
         this.connection = connection;
     }
 
     @Override
-    public List<ItemEntity> getItemsForExchange(int itemStatus) throws SQLException {
+    public List<ItemEntity> getItemsForExchange(int userId, int itemStatus) throws SQLException {
         String query = QueriesProperties.getProperty("ItemsForExchange.request");
         PreparedStatement preparedStatement = this.getPreparedStatement(query);
         preparedStatement.setInt(1, itemStatus);
+        preparedStatement.setInt(2, userId);
         ResultSet resultSet = preparedStatement.executeQuery();
         return this.getItemsFromQuery(resultSet);
     }
@@ -36,6 +38,31 @@ public class ItemDAOImpl implements ItemDAO {
         preparedStatement.setInt(2, userId);
         ResultSet resultSet = preparedStatement.executeQuery();
         return this.getItemsFromQuery(resultSet);
+    }
+
+    public List<ItemEntity> getItemsByUser(int userId) throws SQLException {
+        String query = QueriesProperties.getProperty("GetItemsByUser");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1, userId);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        return this.getItemsFromQuery(resultSet);
+    }
+
+    @Override
+    public ItemEntity getItemById(int id) throws SQLException {
+        String query = QueriesProperties.getProperty("SelectItemById");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        return this.getItemsFromQuery(resultSet).stream().findFirst().get();
+    }
+
+    @Override
+    public void incrementCountView(int id) throws SQLException {
+        String query = QueriesProperties.getProperty("IncrementCountView");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1, id);
+        preparedStatement.executeUpdate();
     }
 
     @Override
@@ -80,22 +107,32 @@ public class ItemDAOImpl implements ItemDAO {
         preparedStatement.executeUpdate();
     }
 
+    @Override
+    public void updateItemUserOwner(int itemId, int userId) throws SQLException {
+        String query = QueriesProperties.getProperty("UpdateItemOwner");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(2, itemId);
+        preparedStatement.setInt(1, userId);
+        preparedStatement.executeUpdate();
+    }
+
     private List<ItemEntity> getItemsFromQuery(ResultSet resultSet) throws SQLException {
         List<ItemEntity> items = new ArrayList<>();
         while (resultSet.next()) {
-            ItemEntity item =
-                    new ItemEntity(resultSet.getInt(EntitiesResource.getProperty("id_items")),
-                            resultSet.getString(EntitiesResource.getProperty("title")),
-                            resultSet.getString(EntitiesResource.getProperty("image")),
-                            resultSet.getString(EntitiesResource.getProperty("description")),
-                            resultSet.getDate(EntitiesResource.getProperty("publication_time_items")),
-                            resultSet.getInt(EntitiesResource.getProperty("user_id")),
-                            resultSet.getInt(EntitiesResource.getProperty("item_status")),
-                            resultSet.getInt(EntitiesResource.getProperty("count_view")));
+            ItemEntity item = new ItemEntity(resultSet.getInt(EntitiesResource.getProperty("id_items")),
+                    resultSet.getString(EntitiesResource.getProperty("title")),
+                    resultSet.getString(EntitiesResource.getProperty("image")),
+                    resultSet.getString(EntitiesResource.getProperty("description")),
+                    resultSet.getDate(EntitiesResource.getProperty("publication_time_items")),
+                    resultSet.getInt(EntitiesResource.getProperty("user_id")),
+                    resultSet.getInt(EntitiesResource.getProperty("item_status")),
+                    resultSet.getInt(EntitiesResource.getProperty("count_view")));
             items.add(item);
         }
         return items;
     }
+    
+
 
     private PreparedStatement getPreparedStatement(String sqlQuery) {
         PreparedStatement preparedStatement = null;

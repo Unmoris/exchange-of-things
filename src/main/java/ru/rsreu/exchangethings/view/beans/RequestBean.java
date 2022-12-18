@@ -1,6 +1,9 @@
 package ru.rsreu.exchangethings.view.beans;
 
-public class ExchangeBean {
+import ru.rsreu.exchangethings.model.ExchangeStatusEnum;
+import ru.rsreu.exchangethings.model.datalayer.entity.RequestEntity;
+
+public class RequestBean {
 
     private int id;
     private String timePublish;
@@ -9,10 +12,10 @@ public class ExchangeBean {
     private ItemBean senderItem;
     private ItemBean receiverItem;
 
-    public ExchangeBean() {
+    public RequestBean() {
     }
 
-    public ExchangeBean(int id, String timePublish, String requestStatus, String comment, ItemBean senderItem, ItemBean receiverItem) {
+    public RequestBean(int id, String timePublish, String requestStatus, String comment, ItemBean senderItem, ItemBean receiverItem) {
         this.id = id;
         this.timePublish = timePublish;
         this.requestStatus = requestStatus;
@@ -21,6 +24,12 @@ public class ExchangeBean {
         this.receiverItem = receiverItem;
     }
 
+    public RequestBean(RequestEntity request) {
+        this.id = request.getRequestID();
+        this.timePublish = request.getPublicationTime().toString();
+        this.requestStatus = ExchangeStatusEnum.getStatus(request.getRequestStatus()).publicName;
+        this.comment = request.getCommentReceiver();
+    }
     public int getId() {
         return id;
     }

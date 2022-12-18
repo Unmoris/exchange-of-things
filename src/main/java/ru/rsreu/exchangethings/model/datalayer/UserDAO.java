@@ -1,5 +1,6 @@
 package ru.rsreu.exchangethings.model.datalayer;
 
+import ru.rsreu.exchangethings.model.UserRoleEnum;
 import ru.rsreu.exchangethings.model.datalayer.entity.UserEntity;
 
 import java.sql.SQLException;
@@ -19,4 +20,8 @@ public interface UserDAO {
 
     void updateUserStatus(int userStatus, int userId) throws SQLException;
     void deleteUser(int userId) throws SQLException;
+
+    UserEntity loginUser(String login, String password) throws SQLException;
+
+    UserEntity getUserById(int id) throws SQLException;
 }

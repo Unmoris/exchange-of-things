@@ -53,7 +53,6 @@ public class AuthenticationFilter implements Filter {
                 throw new AuthenticationException();
             }
         }
-
         chain.doFilter(request, response);
     }
 

@@ -18,8 +18,8 @@ public class DatabaseTest {
             DAOFactory factory = DAOFactory.getInstance(DBType.ORACLE);
 
             UserDAO userDAO = factory.getUserDAOImpl();
-            //List<UserEntity> usersByAuthorizationStatus = userDAO.getUsersByAuthorizationStatus("1");
-            //System.out.println(usersByAuthorizationStatus);
+            List<UserEntity> usersByAuthorizationStatus = userDAO.getUsersByAuthorizationStatus("1");
+            System.out.println(usersByAuthorizationStatus);
             //List<UserEntity> usersByLastLoginTime = userDAO.getUsersByLastLoginTime("1997-05-25");
             //System.out.println(usersByLastLoginTime);
             //List<UserEntity> usersBlockedUsers= userDAO.getBlockedUsers(2);
