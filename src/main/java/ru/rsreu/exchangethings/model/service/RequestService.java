@@ -23,7 +23,6 @@ import java.util.logging.Logger;
 public class RequestService {
     public static RequestService instance = new RequestService();
     private static Logger logger = Logger.getLogger("Request Service ");
-
     private RequestDAO requestDAO = DBType.ORACLE.getDAOFactory().getRequestDAOImpl();
 
     public List<RequestBean> getRequestByStatus(ExchangeStatusEnum exchangeStatusEnum) {
@@ -69,14 +68,54 @@ public class RequestService {
         }
     }
 
-    public RequestEntity getById(int id){
+    public RequestEntity getById(int id) {
         RequestEntity exchange = null;
         try {
-            exchange =requestDAO.getRequestById(id);
+            exchange = requestDAO.getRequestById(id);
         } catch (SQLException e) {
             logger.log(Level.WARNING, "SQL EXCEPTION :" + e.getMessage());
             throw new IncludeParameterException();
         }
         return exchange;
+    }
+
+    List<RequestBean> getRequestsByStatus(int requestStatus) {
+        List<RequestBean> exchanges = new LinkedList<>();
+        try {
+            requestDAO.getRequestsByStatus(requestStatus)
+                    .stream()
+                    .forEach(request -> exchanges.add(new RequestBean(request)));
+        } catch (SQLException e) {
+            logger.log(Level.WARNING, "SQL EXCEPTION :" + e.getMessage());
+            throw new IncludeParameterException();
+        }
+        return exchanges;
+    }
+
+    public void deleteRequest(int requestId) {
+        try {
+            requestDAO.deleteRequest(requestId);
+        } catch (SQLException e) {
+            logger.log(Level.WARNING, "SQL EXCEPTION :" + e.getMessage());
+            throw new IncludeParameterException();
+        }
+    }
+
+    public void deleteRequestsByItem(int itemId) {
+        try {
+            requestDAO.deleteRequestByItemId(itemId);
+        } catch (SQLException e) {
+            logger.log(Level.WARNING, "SQL EXCEPTION :" + e.getMessage());
+            throw new IncludeParameterException();
+        }
+    }
+
+    public void updateStatusByItem(int itemId, ExchangeStatusEnum exchangeStatus) {
+        try {
+            requestDAO.updateStatusByItem(itemId, exchangeStatus.order);
+        } catch (SQLException e) {
+            logger.log(Level.WARNING, "SQL EXCEPTION :" + e.getMessage());
+            throw new IncludeParameterException();
+        }
     }
 }

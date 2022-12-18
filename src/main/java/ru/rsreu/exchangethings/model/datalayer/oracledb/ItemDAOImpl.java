@@ -49,6 +49,14 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
+        public List<ItemEntity> getAll() throws SQLException {
+        String query = QueriesProperties.getProperty("GetAllItems");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        return this.getItemsFromQuery(resultSet);
+    }
+
+    @Override
     public ItemEntity getItemById(int id) throws SQLException {
         String query = QueriesProperties.getProperty("SelectItemById");
         PreparedStatement preparedStatement = this.getPreparedStatement(query);

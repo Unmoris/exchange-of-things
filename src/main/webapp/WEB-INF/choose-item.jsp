@@ -12,9 +12,11 @@
 <body>
 <div>
     <c:import url="template/user-menu.jsp"/>
-    <button type="submit" name=${actions.user} value="exchange">
-        Отменить обмен
-    </button>
+    <form method="post">
+        <button type="submit" name=${actions.user} value="LIST_ITEMS" formmethod="post">
+            Отменить обмен
+        </button>
+    </form>
     <c:forEach var="item" items="${items}">
         <div>
             <form method="post">
