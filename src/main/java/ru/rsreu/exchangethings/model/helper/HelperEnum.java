@@ -2,20 +2,25 @@ package ru.rsreu.exchangethings.model.helper;
 
 import ru.rsreu.exchangethings.model.helper.Items.AddNewItemHelper;
 import ru.rsreu.exchangethings.model.helper.Items.ChooseItemHelper;
+import ru.rsreu.exchangethings.model.helper.Items.BlockItemHelper;
 import ru.rsreu.exchangethings.model.helper.Items.StartExchangeItem;
 import ru.rsreu.exchangethings.model.helper.Items.HideItem;
 import ru.rsreu.exchangethings.model.helper.Items.InfoItemHelper;
 import ru.rsreu.exchangethings.model.helper.Items.OpenItem;
+import ru.rsreu.exchangethings.model.helper.Items.UnBlockItemHelper;
 import ru.rsreu.exchangethings.model.helper.admin.AddHumanHelper;
 import ru.rsreu.exchangethings.model.helper.admin.AuthorizedUsersHelper;
 import ru.rsreu.exchangethings.model.helper.admin.EditDeleteHumanHelper;
 import ru.rsreu.exchangethings.model.helper.admin.GetHumanByIdHelper;
 import ru.rsreu.exchangethings.model.helper.exchange.CancelExchangeHelper;
+import ru.rsreu.exchangethings.model.helper.exchange.DeleteExchangeHelper;
 import ru.rsreu.exchangethings.model.helper.exchange.SetStatusApproveExchangeHelper;
 import ru.rsreu.exchangethings.model.helper.login.LoginHelper;
 import ru.rsreu.exchangethings.model.helper.moderator.AllExchangesHelper;
 import ru.rsreu.exchangethings.model.helper.moderator.AllItemsHelper;
 import ru.rsreu.exchangethings.model.helper.moderator.AllUsersHelper;
+import ru.rsreu.exchangethings.model.helper.moderator.UserBlockHelper;
+import ru.rsreu.exchangethings.model.helper.moderator.UserUnBlockHelper;
 import ru.rsreu.exchangethings.model.helper.user.UserExchangesHelper;
 import ru.rsreu.exchangethings.model.helper.user.UserInfoHelper;
 import ru.rsreu.exchangethings.model.helper.user.UserItemsHelper;
@@ -43,7 +48,12 @@ public enum HelperEnum {
     START_EXCHANGE_ITEM(new StartExchangeItem()),
     CHOOSE_ITEMS(new ChooseItemHelper()),
     CANCEL_EXCHANGE(new CancelExchangeHelper()),
-    APPROVE_EXCHANGE(new SetStatusApproveExchangeHelper());
+    APPROVE_EXCHANGE(new SetStatusApproveExchangeHelper()),
+    USER_BLOCK(new UserBlockHelper()),
+    USER_UNBLOCK(new UserUnBlockHelper()),
+    DELETE_REQUEST(new DeleteExchangeHelper()),
+    BLOCK_ITEM(new BlockItemHelper()),
+    UNBLOCK_ITEM(new UnBlockItemHelper());
     private Helper helper;
 
     HelperEnum(Helper info) {

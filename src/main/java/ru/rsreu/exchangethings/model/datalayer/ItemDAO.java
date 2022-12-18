@@ -14,6 +14,8 @@ public interface ItemDAO {
     List<ItemEntity> getHiddenItems(int itemStatus, int userId) throws SQLException;
 
     List<ItemEntity> getItemsByUser(int userId) throws SQLException;
+    List<ItemEntity> getAll() throws SQLException;
+
 
     ItemEntity getItemById(int id) throws SQLException;
 

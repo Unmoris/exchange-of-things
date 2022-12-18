@@ -50,6 +50,15 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public List<UserEntity> getAllByRole(int role) throws SQLException {
+        String query = QueriesProperties.getProperty("SelectUsersByRole");
+        PreparedStatement preparedStatementUsers = this.getPreparedStatement(query);
+        preparedStatementUsers.setInt(1, role);
+        ResultSet resultSet = preparedStatementUsers.executeQuery();
+        return this.getUsersFromQuery(resultSet);
+    }
+
+    @Override
     public void insertUser(String surname, String name, String patronymic,
                            String login, String password, String isAuthorized,
                            String lastLoginTime, int userRole, int userStatus) throws SQLException, ParseException {

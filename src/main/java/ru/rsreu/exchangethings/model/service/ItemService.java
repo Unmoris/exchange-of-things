@@ -102,12 +102,32 @@ public class ItemService {
         return itemBean;
     }
 
-    public void updateItemUserOwner(int itemId, int userId)  {
+    public void updateItemUserOwner(int itemId, int userId) {
         try {
             itemDAO.updateItemUserOwner(itemId, userId);
         } catch (SQLException e) {
             logger.log(Level.WARNING, "SQL EXCEPTION :" + e.getMessage());
             throw new IncludeParameterException();
         }
+    }
+
+    public void deleteItem(int id) {
+        try {
+            itemDAO.deleteItem(id);
+        } catch (SQLException e) {
+            logger.log(Level.WARNING, "SQL EXCEPTION :" + e.getMessage());
+            throw new IncludeParameterException();
+        }
+    }
+
+    public List<ItemBean> getAllItems() {
+        List<ItemBean> itemBeans = new LinkedList<>();
+        try {
+            itemDAO.getAll().forEach(itemEntity -> itemBeans.add(new ItemBean(itemEntity)));
+        } catch (SQLException e) {
+            logger.log(Level.WARNING, "SQL EXCEPTION :" + e.getMessage());
+            throw new IncludeParameterException();
+        }
+        return itemBeans;
     }
 }

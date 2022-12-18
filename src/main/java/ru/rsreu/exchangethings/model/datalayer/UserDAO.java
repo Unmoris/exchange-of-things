@@ -14,6 +14,9 @@ public interface UserDAO {
     List<UserEntity> getUsersByLastLoginTime(String lastLoginTime) throws SQLException, ParseException;
     //Просмотр заблокированных пользователей
     List<UserEntity> getBlockedUsers(int blockedStatus) throws SQLException;
+
+    List<UserEntity> getAllByRole(int role) throws SQLException;
+
     void insertUser(String surname, String name, String patronymic,
                     String login, String password, String isAuthorized,
                     String lastLoginTime, int userRole, int userStatus)  throws SQLException, ParseException;

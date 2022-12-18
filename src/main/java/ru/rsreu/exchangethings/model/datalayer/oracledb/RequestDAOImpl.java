@@ -52,6 +52,25 @@ public class RequestDAOImpl implements RequestDAO {
                 .get();
     }
 
+    @Override
+    public void deleteRequestByItemId(int itemId) throws SQLException {
+        String query = QueriesProperties.getProperty("DeleteRequestByItem");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1, itemId);
+        preparedStatement.setInt(2, itemId);
+        preparedStatement.executeUpdate();
+    }
+
+    @Override
+    public void updateStatusByItem(int itemId, int status) throws SQLException {
+        String query = QueriesProperties.getProperty("UpdateStatusRequestByItem");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1,status);
+        preparedStatement.setInt(2, itemId);
+        preparedStatement.setInt(3,itemId);
+        preparedStatement.executeUpdate();
+    }
+
 
     @Override
     public List<RequestEntity> getRequestsFromPeriod(String firstPublicationTime, String secondPublicationTime) throws SQLException, ParseException {

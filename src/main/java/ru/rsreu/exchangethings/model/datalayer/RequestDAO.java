@@ -23,4 +23,7 @@ public interface RequestDAO {
     public List<RequestEntity> getRequestsByUserIdAndStatus(int userId, int requestStatus) throws SQLException;
     public RequestEntity getRequestById(int requestStatus) throws SQLException;
 
+    void deleteRequestByItemId(int itemId) throws  SQLException;
+
+    void updateStatusByItem(int itemId, int status) throws  SQLException;
 }

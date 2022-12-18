@@ -1,7 +1,9 @@
 package ru.rsreu.exchangethings.model;
 
 public enum ExchangeStatusEnum {
-    ACTIVE(1, "Открыта"), END(2, "Закрыта"), CANCEL(3, "Отменена");
+    ACTIVE(1, "Открыта"),
+    END(2, "Закрыта"),
+    CANCEL(3, "Отменена");
 
     public final int order;
     public final String publicName;

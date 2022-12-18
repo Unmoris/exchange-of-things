@@ -65,6 +65,7 @@ public class ItemBean implements Serializable {
         this.description = itemEntity.getDescription();
         this.publishTime = itemEntity.getPublicationTime();
         this.countViewItem = itemEntity.getCountView();
+        this.status = ItemStatusEnum.getStatus(itemEntity.getItemStatus()).publicName;
     }
     public void setId(int id) {
         this.id = id;
