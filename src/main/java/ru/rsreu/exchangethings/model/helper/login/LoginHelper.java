@@ -31,6 +31,7 @@ public class LoginHelper extends LoggerHelper {
         UserBean userBean;
         try {
             userBean = userService.login(login, password);
+            userService.updateUserAuth(userBean.getId(), true);
             tokenRegistrar.registration(request, new TokenInfo(userBean.getId(), UserRoleEnum.getRole(userBean.getUserRole())));
         } catch (Exception e) {
             request.setAttribute("error", "Ошибка авторизации");

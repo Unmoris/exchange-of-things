@@ -114,6 +114,39 @@ public class UserDAOImpl implements UserDAO {
         return this.getUserEntity(resultSet);
     }
 
+    @Override
+    public void updateAllUserAuth() throws SQLException {
+        String query = QueriesProperties.getProperty("UpdateUsersAuth");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.executeUpdate();
+    }
+
+    @Override
+    public void updateUserAuth(int idUser,  Boolean auth) throws SQLException {
+        String query = QueriesProperties.getProperty("UpdateUsersAuthById");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1, idUser);
+        if (auth){
+            preparedStatement.setString(2, "1");
+        }else {
+            preparedStatement.setString(2, "0");
+        }
+        preparedStatement.executeUpdate();
+    }
+
+    @Override
+    public void updateUserInfo(UserEntity userEntity) throws SQLException {
+        String query = QueriesProperties.getProperty("updateUser");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setString(1, userEntity.getSurname());
+        preparedStatement.setString(2, userEntity.getName());
+        preparedStatement.setString(3, userEntity.getPatronymic());
+        preparedStatement.setString(4, userEntity.getLogin());
+        preparedStatement.setString(5, userEntity.getPassword());
+        preparedStatement.setInt(6, userEntity.getUserID());
+        preparedStatement.executeUpdate();
+    }
+
     private List<UserEntity> getUsersFromQuery(ResultSet resultSet) throws SQLException {
         List<UserEntity> users = new ArrayList<>();
         while (resultSet.next()) {

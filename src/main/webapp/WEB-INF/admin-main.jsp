@@ -39,42 +39,43 @@
                 </div>
             </c:when>
             <c:when test="${menu_item == 'add_human'}">
-            <div>
-                <form method="post">
-                    <label>
-                        Роль:
-                    </label>
-                    <select name="user_role" required="required">
-                        <option value=""></option>
-                        <option value="1">Администратор</option>
-                        <option value="2">Модератор</option>
-                        <option value="3">Пользователь</option>
-                    </select> </br> </br>
-                    <label>
-                        Фамилия:
-                    </label>
-                    <input value=""  name="surname" type="text" maxlength="50"/> </br> </br>
-                    <label>
-                        Имя:
-                    </label>
-                    <input value=""  name="name" type="text" maxlength="50"/> </br> </br>
-                    <label>
-                        Отчество:
-                    </label>
-                    <input value=""  name="patronymic" type="text" maxlength="50"/> </br> </br>
-                    <label>
-                        Логин:
-                    </label>
-                    <input value=""  name="login" type="text" maxlength="50"/> </br> </br>
-                    <label>
-                        Пароль:
-                    </label>
-                    <input value=""  name="password" type="text" maxlength="50"/> </br> </br>
-                    <button type="submit" name=${actions.admin} value="human_adding">
-                        Добавить
-                    </button> </br>
-                </form>
-            </div>
+                <div>
+                    <form method="post">
+                        <label>
+                            Роль:
+                        </label>
+                        <select name="user_role" required="required">
+                            <option value=""></option>
+                            <option value="1">Администратор</option>
+                            <option value="2">Модератор</option>
+                            <option value="3">Пользователь</option>
+                        </select> </br> </br>
+                        <label>
+                            Фамилия:
+                        </label>
+                        <input value="" name="surname" type="text" maxlength="50"/> </br> </br>
+                        <label>
+                            Имя:
+                        </label>
+                        <input value="" name="name" type="text" maxlength="50"/> </br> </br>
+                        <label>
+                            Отчество:
+                        </label>
+                        <input value="" name="patronymic" type="text" maxlength="50"/> </br> </br>
+                        <label>
+                            Логин:
+                        </label>
+                        <input value="" name="login" type="text" maxlength="50"/> </br> </br>
+                        <label>
+                            Пароль:
+                        </label>
+                        <input value="" name="password" type="text" maxlength="50"/> </br> </br>
+                        <button type="submit" name=${actions.admin} value="ADDING_HUMAN">
+                            Добавить
+                        </button>
+                        </br>
+                    </form>
+                </div>
                 <c:forEach var="user" items="${users}">
                 </c:forEach>
             </c:when>
@@ -85,6 +86,7 @@
                             <label>
                                 Логин: ${user.login}  </br>
                             </label>
+                            <label>
                                 Имя: ${user.name} </br>
                             </label>
                             <label>
@@ -133,6 +135,7 @@
                                 Статус: ${user.userStatus} </br>
                             </label>
                         </form>
+                        </br>
                     </div>
                 </c:forEach>
             </c:when>

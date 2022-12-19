@@ -35,7 +35,7 @@
                     Пароль:
                 </label>
                 <input value="1"  name="password" type="password" maxlength="50"/> </br> </br>
-                <button type="submit" formmethod="post" name=${actions.admin} value="human_adding">
+                <button type="submit" formmethod="post" name=${actions.admin} value="HUMAN_SAVE_EDIT">
                     Сохранить изменения
                 </button> </br>
                 <input type="hidden" name="id_user" value="${user.id}">

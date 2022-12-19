@@ -27,4 +27,9 @@ public interface UserDAO {
     UserEntity loginUser(String login, String password) throws SQLException;
 
     UserEntity getUserById(int id) throws SQLException;
+
+    void updateAllUserAuth() throws SQLException;
+    void updateUserAuth(int idUser, Boolean auth) throws SQLException;
+
+    void updateUserInfo(UserEntity userEntity) throws SQLException;
 }

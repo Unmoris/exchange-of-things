@@ -21,6 +21,9 @@ import ru.rsreu.exchangethings.model.helper.moderator.AllItemsHelper;
 import ru.rsreu.exchangethings.model.helper.moderator.AllUsersHelper;
 import ru.rsreu.exchangethings.model.helper.moderator.UserBlockHelper;
 import ru.rsreu.exchangethings.model.helper.moderator.UserUnBlockHelper;
+import ru.rsreu.exchangethings.model.helper.user.DeleteUserHelper;
+import ru.rsreu.exchangethings.model.helper.user.SaveUserHelper;
+import ru.rsreu.exchangethings.model.helper.user.UpdateUserHelper;
 import ru.rsreu.exchangethings.model.helper.user.UserExchangesHelper;
 import ru.rsreu.exchangethings.model.helper.user.UserInfoHelper;
 import ru.rsreu.exchangethings.model.helper.user.UserItemsHelper;
@@ -53,7 +56,10 @@ public enum HelperEnum {
     USER_UNBLOCK(new UserUnBlockHelper()),
     DELETE_REQUEST(new DeleteExchangeHelper()),
     BLOCK_ITEM(new BlockItemHelper()),
-    UNBLOCK_ITEM(new UnBlockItemHelper());
+    UNBLOCK_ITEM(new UnBlockItemHelper()),
+    HUMAN_SAVE_EDIT(new UpdateUserHelper()),
+    HUMAN_SAVE(new SaveUserHelper()),
+    DELETE_USER(new DeleteUserHelper());
     private Helper helper;
 
     HelperEnum(Helper info) {
