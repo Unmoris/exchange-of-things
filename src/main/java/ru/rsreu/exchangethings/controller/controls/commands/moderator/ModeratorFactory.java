@@ -3,7 +3,6 @@ package ru.rsreu.exchangethings.controller.controls.commands.moderator;
 import ru.rsreu.exchangethings.controller.controls.Control;
 import ru.rsreu.exchangethings.controller.controls.LoggerControl;
 import ru.rsreu.exchangethings.controller.controls.commands.ControlFactory;
-import ru.rsreu.exchangethings.controller.controls.commands.user.UserControlEnum;
 import ru.rsreu.exchangethings.view.parameters.ControlNames;
 
 import javax.servlet.http.HttpServletRequest;

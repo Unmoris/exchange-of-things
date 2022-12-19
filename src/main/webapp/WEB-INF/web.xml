@@ -37,11 +37,6 @@
 
     <filter>
         <filter-name>filter</filter-name>
-        <init-param>
-            <param-name>contour</param-name>
-            <param-value>prod</param-value>
-<!--            <param-value>test</param-value>-->
-        </init-param>
         <filter-class>ru.rsreu.exchangethings.filters.AuthenticationFilter</filter-class>
     </filter>
 

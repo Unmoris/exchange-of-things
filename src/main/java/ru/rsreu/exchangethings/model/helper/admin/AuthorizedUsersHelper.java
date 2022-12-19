@@ -2,6 +2,7 @@ package ru.rsreu.exchangethings.model.helper.admin;
 
 import ru.rsreu.exchangethings.exceptions.IncludeParameterException;
 import ru.rsreu.exchangethings.model.helper.MenuHelper;
+import ru.rsreu.exchangethings.model.service.UserService;
 import ru.rsreu.exchangethings.view.beans.UserBean;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,11 +14,11 @@ public class AuthorizedUsersHelper extends MenuHelper {
         super("show_authorized_users");
     }
 
+    UserService userService = UserService.instance;
+
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IncludeParameterException {
-        request.setAttribute("users", Arrays.asList(new UserBean(1, "m.lapkin", "Миша",
-                "Лапкин", "Ильич", "1", "Пользователь", "Активен"),
-                new UserBean(2, "m.lyagusheva", "Маша", "Лягушева", "Алексеевна", "1", "Пользователь", "Активен")));
+        request.setAttribute("users", userService.getUsersByAuthorizationStatus(true));
         super.execute(request, response);
     }
 }

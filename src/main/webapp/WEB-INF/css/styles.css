@@ -39,6 +39,20 @@ button {
     margin-left: 20px;
 }
 
+.button_menu {
+    color: #fff;
+    background-color: #29c5e6;
+    border: none;
+    height: 40px;
+    font-family: 'Oswald', sans-serif;
+    width: 180px;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
 button[value="enter"]{
     color: #fff;
     background-color: #8118b2;

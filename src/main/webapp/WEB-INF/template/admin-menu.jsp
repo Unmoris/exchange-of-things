@@ -6,17 +6,17 @@
     <h1>АДМИНИСТРАТОР</h1>
     <form method="post">
         <input type="hidden" name="${actions.command}" value="admin" >
-        <button value="info" name=${actions.admin}>
+        <button value="info" name=${actions.admin} class="button_menu">
             Моя информация
         </button>
-        <button value="add_human" name=${actions.admin}>
+        <button value="add_human" name=${actions.admin} class="button_menu">
             Добавить пользователя
         </button>
-        <button value="edit_delete_human" name=${actions.admin}>
-            Редактирование и удаление пользователей
+        <button value="edit_delete_human" name=${actions.admin} class="button_menu">
+            Редактирование пользователей
         </button>
-        <button value="show_authorized_users" name=${actions.admin}>
-            Просмотр авторизованных в данный момент
+        <button value="show_authorized_users" name=${actions.admin} class="button_menu">
+            Авторизованные пользователи
         </button>
     </form>
 </div>

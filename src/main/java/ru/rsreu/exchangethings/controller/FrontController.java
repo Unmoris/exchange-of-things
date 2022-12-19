@@ -3,6 +3,7 @@ package ru.rsreu.exchangethings.controller;
 import ru.rsreu.exchangethings.configuration.PathToDirectoryImages;
 import ru.rsreu.exchangethings.controller.controls.Control;
 import ru.rsreu.exchangethings.controller.controls.commands.CommandControlFactory;
+import ru.rsreu.exchangethings.model.service.UserService;
 import ru.rsreu.exchangethings.view.parameters.ActionBean;
 
 import javax.servlet.ServletContext;
@@ -14,7 +15,8 @@ import java.io.UnsupportedEncodingException;
 public class FrontController extends HttpServlet {
     private final CommandControlFactory client = new CommandControlFactory();
 
-    private void processRequest(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+private UserService userService = UserService.instance;
+    private void processRequest(HttpServletRequest request, HttpServletResponse response) {
         Control command = client.defineControl(request);
         command.control(request, response);
     }
@@ -23,6 +25,7 @@ public class FrontController extends HttpServlet {
         ServletContext context = this.getServletContext();
         context.setAttribute("actions", new ActionBean());
         PathToDirectoryImages.setPath(context.getRealPath("/"));
+        userService.updateAllUserAuth();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {

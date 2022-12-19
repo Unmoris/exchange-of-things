@@ -1,4 +1,4 @@
-package ru.rsreu.exchangethings.controller.controls.commands.user;
+package ru.rsreu.exchangethings.model.helper.user;
 
 import ru.rsreu.exchangethings.controller.controls.Control;
 import ru.rsreu.exchangethings.controller.controls.ViewControl;
