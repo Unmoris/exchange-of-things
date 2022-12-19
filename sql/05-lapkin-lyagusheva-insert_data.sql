@@ -54,6 +54,10 @@ INSERT INTO users (id, surname, name, patronymic, login, password, is_authorized
 VALUES (users_id.NEXTVAL, 'Ivanоv', 'Ivan', 'Ivanovich', 'ivanov',  '1', '1', '07-11-2022', 3, 1);
 INSERT INTO users (id, surname, name, patronymic, login, password, is_authorized, last_login_time, user_role, user_status)
 VALUES (users_id.NEXTVAL, 'Petrov', 'Petr', 'Petrovich', 'petrov',  '1', '1', '25-05-1997', 3, 1);
+INSERT INTO users (id, surname, name, patronymic, login, password, is_authorized, last_login_time, user_role, user_status)
+VALUES (users_id.NEXTVAL, 'Lyagusheva', 'Mariya', 'Alekseevna', 'moderator',  '1', '1', '25-05-1997', 2, 1);
+INSERT INTO users (id, surname, name, patronymic, login, password, is_authorized, last_login_time, user_role, user_status)
+VALUES (users_id.NEXTVAL, 'Lyagusheva', 'Mariya', 'Alekseevna', 'admin',  '1', '1', '25-05-1997', 1, 1);
 
 --Добавление товаров в БД
 INSERT INTO items (id, title, image, description, publication_time, user_id, item_status, count_view)

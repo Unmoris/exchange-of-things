@@ -1,9 +1,14 @@
 package ru.rsreu.exchangethings.model.datalayer.entity;
 
 import java.sql.Date;
+/**
+ * Data-class describing the Item Entity of the subject area
+ */
 
 public class ItemEntity {
-
+    /**
+     * field-properties
+     */
     private int itemsID;
     private String title;
     private String image;
@@ -12,7 +17,9 @@ public class ItemEntity {
     private int userID;
     private int itemStatus;
     private int countView;
-
+    /**
+     * Constructor - determines a new entity
+     */
     public ItemEntity(int itemsID, String title, String image, String description, Date publicationTime,
                       int userID, int itemStatus, int countView) {
         this.itemsID = itemsID;
@@ -24,7 +31,9 @@ public class ItemEntity {
         this.itemStatus = itemStatus;
         this.countView = countView;
     }
-
+    /**
+     *Getters and Setters
+     */
     public int getItemsID() {
         return itemsID;
     }

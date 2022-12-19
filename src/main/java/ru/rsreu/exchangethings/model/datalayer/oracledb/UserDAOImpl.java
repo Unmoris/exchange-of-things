@@ -125,11 +125,11 @@ public class UserDAOImpl implements UserDAO {
     public void updateUserAuth(int idUser,  Boolean auth) throws SQLException {
         String query = QueriesProperties.getProperty("UpdateUsersAuthById");
         PreparedStatement preparedStatement = this.getPreparedStatement(query);
-        preparedStatement.setInt(1, idUser);
+        preparedStatement.setInt(2, idUser);
         if (auth){
-            preparedStatement.setString(2, "1");
+            preparedStatement.setString(1, "1");
         }else {
-            preparedStatement.setString(2, "0");
+            preparedStatement.setString(1, "0");
         }
         preparedStatement.executeUpdate();
     }

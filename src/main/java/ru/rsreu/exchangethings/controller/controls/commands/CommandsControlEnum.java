@@ -5,7 +5,7 @@ import ru.rsreu.exchangethings.controller.controls.FactoryControl;
 import ru.rsreu.exchangethings.controller.controls.ViewControl;
 import ru.rsreu.exchangethings.controller.controls.commands.admin.AdminFactory;
 import ru.rsreu.exchangethings.controller.controls.commands.moderator.ModeratorFactory;
-import ru.rsreu.exchangethings.model.helper.user.UserFactory;
+import ru.rsreu.exchangethings.controller.controls.commands.user.UserFactory;
 import ru.rsreu.exchangethings.model.helper.HelperEnum;
 import ru.rsreu.exchangethings.view.pages.PageEnum;
 
