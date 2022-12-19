@@ -18,23 +18,23 @@
                 <label>
                     Фамилия:
                 </label>
-                <input value="${user.surname}"  name="surname" type="text" maxlength="50"/> </br> </br>
+                <input value="${user.surname}"  name="surname" class="input_add_user" type="text" maxlength="50"/> </br> </br>
                 <label>
                     Имя:
                 </label>
-                <input value="${user.name}"  name="name" type="text" maxlength="50"/> </br> </br>
+                <input value="${user.name}"  name="name" class="input_add_user" type="text" maxlength="50"/> </br> </br>
                 <label>
                     Отчество:
                 </label>
-                <input value="${user.patronymic}"  name="patronymic" type="text" maxlength="50"/> </br> </br>
+                <input value="${user.patronymic}"  name="patronymic" class="input_add_user" type="text" maxlength="50"/> </br> </br>
                 <label>
                     Логин:
                 </label>
-                <input value="${user.login}"  name="login" type="text" maxlength="50"/> </br> </br>
+                <input value="${user.login}"  name="login" class="input_add_user" type="text" maxlength="50"/> </br> </br>
                 <label>
                     Пароль:
                 </label>
-                <input value="1"  name="password" type="password" maxlength="50"/> </br> </br>
+                <input value="1"  name="password" class="input_add_user" type="password" maxlength="50"/> </br> </br>
                 <button type="submit" formmethod="post" name=${actions.admin} value="HUMAN_SAVE_EDIT">
                     Сохранить изменения
                 </button> </br>

@@ -2,8 +2,13 @@ package ru.rsreu.exchangethings.model.datalayer.entity;
 
 import java.sql.Date;
 
+/**
+ * Data-class describing the User Entity of the subject area
+ */
 public class UserEntity {
-
+    /**
+     * field-properties
+     */
     private int userID;
     private String surname;
     private String name;
@@ -14,7 +19,9 @@ public class UserEntity {
     private Date lastLoginTime;
     private int userRole;
     private int userStatus;
-
+    /**
+     * Constructor - determines a new entity
+     */
     public UserEntity(int id, String surname, String name, String patronymic, String login, String password,
                       String isAuthorized, Date lastLoginTime, int userRole, int userStatus) {
         this.userID = id;
@@ -29,6 +36,9 @@ public class UserEntity {
         this.userStatus = userStatus;
     }
 
+    /**
+     *Getters and Setters
+     */
     public int getUserID() {
         return userID;
     }

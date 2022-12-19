@@ -1,15 +1,22 @@
 package ru.rsreu.exchangethings.model.datalayer.entity;
 
 import java.sql.Date;
-
+/**
+ * Data-class describing the Request Entity of the subject area
+ */
 public class RequestEntity {
+    /**
+     * field-properties
+     */
     private int RequestID;
     private Date publicationTime;
     private int requestStatus;
     private String commentReceiver;
     private int itemSenderID;
     private int itemReceiverID;
-
+    /**
+     * Constructor - determines a new entity
+     */
     public RequestEntity(int requestID, Date publicationTime, int requestStatus, String commentReceiver, int itemSenderID, int itemReceiverID) {
         RequestID = requestID;
         this.publicationTime = publicationTime;
@@ -18,7 +25,9 @@ public class RequestEntity {
         this.itemSenderID = itemSenderID;
         this.itemReceiverID = itemReceiverID;
     }
-
+    /**
+     *Getters and Setters
+     */
     public int getRequestID() {
         return RequestID;
     }

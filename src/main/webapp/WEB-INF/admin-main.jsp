@@ -53,23 +53,23 @@
                         <label>
                             Фамилия:
                         </label>
-                        <input value="" name="surname" type="text" maxlength="50"/> </br> </br>
+                        <input value="" name="surname" class="input_add_user" type="text" maxlength="50"/> </br>
                         <label>
                             Имя:
                         </label>
-                        <input value="" name="name" type="text" maxlength="50"/> </br> </br>
+                        <input value="" name="name" type="text" class="input_add_user" maxlength="50"/> </br>
                         <label>
                             Отчество:
                         </label>
-                        <input value="" name="patronymic" type="text" maxlength="50"/> </br> </br>
+                        <input value="" name="patronymic" class="input_add_user" type="text"  maxlength="50"/> </br>
                         <label>
                             Логин:
                         </label>
-                        <input value="" name="login" type="text" maxlength="50"/> </br> </br>
+                        <input value="" name="login" class="input_add_user" type="text" maxlength="50"/> </br>
                         <label>
                             Пароль:
                         </label>
-                        <input value="" name="password" type="text" maxlength="50"/> </br> </br>
+                        <input value="" name="password" class="input_add_user" type="text" maxlength="50"/> </br>
                         <button type="submit" name=${actions.admin} value="ADDING_HUMAN">
                             Добавить
                         </button>
