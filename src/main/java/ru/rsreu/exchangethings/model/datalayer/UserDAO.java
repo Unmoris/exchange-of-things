@@ -1,6 +1,5 @@
 package ru.rsreu.exchangethings.model.datalayer;
 
-import ru.rsreu.exchangethings.model.UserRoleEnum;
 import ru.rsreu.exchangethings.model.datalayer.entity.UserEntity;
 
 import java.sql.SQLException;

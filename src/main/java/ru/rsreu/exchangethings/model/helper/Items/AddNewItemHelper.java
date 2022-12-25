@@ -1,6 +1,5 @@
 package ru.rsreu.exchangethings.model.helper.Items;
 
-import ru.rsreu.exchangethings.configuration.PathToDirectoryImages;
 import ru.rsreu.exchangethings.exceptions.IncludeParameterException;
 import ru.rsreu.exchangethings.model.helper.Helper;
 import ru.rsreu.exchangethings.model.service.ImageService;
@@ -13,7 +12,6 @@ import javax.servlet.http.Part;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
 public class AddNewItemHelper implements Helper {
 

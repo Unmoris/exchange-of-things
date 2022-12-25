@@ -2,7 +2,6 @@ package ru.rsreu.exchangethings.model.datalayer.oracledb;
 
 import ru.rsreu.exchangethings.configuration.EntitiesResource;
 import ru.rsreu.exchangethings.configuration.QueriesProperties;
-import ru.rsreu.exchangethings.model.UserRoleEnum;
 import ru.rsreu.exchangethings.model.datalayer.DateFormatter;
 import ru.rsreu.exchangethings.model.datalayer.UserDAO;
 import ru.rsreu.exchangethings.model.datalayer.entity.UserEntity;

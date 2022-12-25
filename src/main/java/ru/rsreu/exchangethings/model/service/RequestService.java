@@ -4,13 +4,8 @@ import ru.rsreu.exchangethings.exceptions.IncludeParameterException;
 import ru.rsreu.exchangethings.model.ExchangeStatusEnum;
 import ru.rsreu.exchangethings.model.datalayer.DBType;
 import ru.rsreu.exchangethings.model.datalayer.RequestDAO;
-import ru.rsreu.exchangethings.model.datalayer.entity.ItemEntity;
 import ru.rsreu.exchangethings.model.datalayer.entity.RequestEntity;
-import ru.rsreu.exchangethings.model.datalayer.entity.RequestStatusEntity;
-import ru.rsreu.exchangethings.model.datalayer.oracledb.OracleDBDAOFactory;
-import ru.rsreu.exchangethings.view.beans.ItemBean;
 import ru.rsreu.exchangethings.view.beans.RequestBean;
-import ru.rsreu.exchangethings.view.beans.UserBean;
 
 import java.sql.SQLException;
 import java.text.ParseException;

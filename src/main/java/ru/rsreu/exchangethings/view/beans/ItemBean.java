@@ -51,6 +51,7 @@ public class ItemBean implements Serializable {
         this.title = itemEntity.getTitle();
         this.image = itemEntity.getImage();
         this.description = itemEntity.getDescription();
+        this.status = ItemStatusEnum.getStatus(itemEntity.getItemStatus()).publicName;
         this.owner = owner;
         this.isHidden = ItemStatusEnum.getStatus(itemEntity.getItemStatus()) == ItemStatusEnum.HIDDEN;
         this.publishTime = itemEntity.getPublicationTime();

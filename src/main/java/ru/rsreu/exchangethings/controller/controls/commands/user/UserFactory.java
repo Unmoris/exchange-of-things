@@ -1,8 +1,8 @@
 package ru.rsreu.exchangethings.controller.controls.commands.user;
 
 import ru.rsreu.exchangethings.controller.controls.Control;
-import ru.rsreu.exchangethings.controller.controls.commands.ControlFactory;
 import ru.rsreu.exchangethings.controller.controls.LoggerControl;
+import ru.rsreu.exchangethings.controller.controls.commands.ControlFactory;
 import ru.rsreu.exchangethings.view.parameters.ControlNames;
 
 import javax.servlet.http.HttpServletRequest;

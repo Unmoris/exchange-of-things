@@ -2,9 +2,7 @@ package ru.rsreu.exchangethings.security;
 
 import ru.rsreu.exchangethings.security.token.TokenInfo;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.logging.Logger;

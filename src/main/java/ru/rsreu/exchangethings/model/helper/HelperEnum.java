@@ -1,12 +1,12 @@
 package ru.rsreu.exchangethings.model.helper;
 
 import ru.rsreu.exchangethings.model.helper.Items.AddNewItemHelper;
-import ru.rsreu.exchangethings.model.helper.Items.ChooseItemHelper;
 import ru.rsreu.exchangethings.model.helper.Items.BlockItemHelper;
-import ru.rsreu.exchangethings.model.helper.Items.StartExchangeItem;
+import ru.rsreu.exchangethings.model.helper.Items.ChooseItemHelper;
 import ru.rsreu.exchangethings.model.helper.Items.HideItem;
 import ru.rsreu.exchangethings.model.helper.Items.InfoItemHelper;
 import ru.rsreu.exchangethings.model.helper.Items.OpenItem;
+import ru.rsreu.exchangethings.model.helper.Items.StartExchangeItem;
 import ru.rsreu.exchangethings.model.helper.Items.UnBlockItemHelper;
 import ru.rsreu.exchangethings.model.helper.admin.AddHumanHelper;
 import ru.rsreu.exchangethings.model.helper.admin.AuthorizedUsersHelper;
@@ -22,12 +22,13 @@ import ru.rsreu.exchangethings.model.helper.moderator.AllUsersHelper;
 import ru.rsreu.exchangethings.model.helper.moderator.UserBlockHelper;
 import ru.rsreu.exchangethings.model.helper.moderator.UserUnBlockHelper;
 import ru.rsreu.exchangethings.model.helper.user.DeleteUserHelper;
+import ru.rsreu.exchangethings.model.helper.user.ItemsListForUserHelper;
 import ru.rsreu.exchangethings.model.helper.user.SaveUserHelper;
 import ru.rsreu.exchangethings.model.helper.user.UpdateUserHelper;
 import ru.rsreu.exchangethings.model.helper.user.UserExchangesHelper;
 import ru.rsreu.exchangethings.model.helper.user.UserInfoHelper;
 import ru.rsreu.exchangethings.model.helper.user.UserItemsHelper;
-import ru.rsreu.exchangethings.model.helper.user.ItemsListForUserHelper;
+import ru.rsreu.exchangethings.model.helper.user.UserNotificationHelper;
 import ru.rsreu.exchangethings.model.mock.TestLogging;
 
 public enum HelperEnum {
@@ -59,7 +60,8 @@ public enum HelperEnum {
     UNBLOCK_ITEM(new UnBlockItemHelper()),
     HUMAN_SAVE_EDIT(new UpdateUserHelper()),
     HUMAN_SAVE(new SaveUserHelper()),
-    DELETE_USER(new DeleteUserHelper());
+    DELETE_USER(new DeleteUserHelper()),
+    NOTIFICATIONS(new UserNotificationHelper("notifications"));
     private Helper helper;
 
     HelperEnum(Helper info) {

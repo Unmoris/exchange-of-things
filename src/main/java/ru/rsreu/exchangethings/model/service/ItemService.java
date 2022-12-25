@@ -28,12 +28,12 @@ public class ItemService {
 
     public static ItemService instance = new ItemService();
 
-    public List<ItemBean> getUserItems(int userId) {
+    public List<ItemBean> getUserItems(int userId,int itemStatus) {
         List<ItemBean> items = new LinkedList<>();
         UserBean owner;
         try {
             owner = new UserBean(userDAO.getUserById(userId));
-            itemDAO.getItemsByUser(userId)
+            itemDAO.getItemsByUser(userId, itemStatus)
                     .stream()
                     .filter(Objects::nonNull)
                     .forEach(itemEntity -> items.add(new ItemBean(itemEntity, owner)));

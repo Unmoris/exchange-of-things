@@ -1,11 +1,9 @@
 package ru.rsreu.exchangethings.model.helper.Items;
 
 import ru.rsreu.exchangethings.exceptions.IncludeParameterException;
-import ru.rsreu.exchangethings.model.ExchangeStatusEnum;
 import ru.rsreu.exchangethings.model.ItemStatusEnum;
 import ru.rsreu.exchangethings.model.helper.Helper;
 import ru.rsreu.exchangethings.model.service.ItemService;
-import ru.rsreu.exchangethings.model.service.RequestService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
