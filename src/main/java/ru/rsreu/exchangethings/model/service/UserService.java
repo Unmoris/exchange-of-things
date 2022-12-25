@@ -158,7 +158,7 @@ public class UserService {
         }
     }
 
-    void deleteUser(int userId) {
+    public void deleteUser(int userId) {
         try {
             userDAO.deleteUser(userId);
         } catch (SQLException e) {

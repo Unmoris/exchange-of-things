@@ -118,4 +118,17 @@ public class RequestService {
             throw new IncludeParameterException();
         }
     }
+
+    public List<RequestBean> getRequestByItem(int itemSenderId, int itemReciverId) {
+        List<RequestBean> exchanges = new LinkedList<>();
+        try {
+            requestDAO.getRequestEntitiesByItem(itemSenderId, itemReciverId)
+                    .stream()
+                    .forEach(request -> exchanges.add(new RequestBean(request)));
+        } catch (SQLException e) {
+            logger.log(Level.WARNING, "SQL EXCEPTION :" + e.getMessage());
+            throw new IncludeParameterException();
+        }
+        return exchanges;
+    }
 }
