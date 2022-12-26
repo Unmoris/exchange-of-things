@@ -1,8 +1,5 @@
 package ru.rsreu.exchangethings.model.mock;
 
-import ru.rsreu.exchangethings.model.datalayer.entity.UserEntity;
-
-import java.util.Objects;
 import java.util.logging.Logger;
 
 public class TestLogging {

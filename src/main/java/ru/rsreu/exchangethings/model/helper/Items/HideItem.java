@@ -1,6 +1,5 @@
 package ru.rsreu.exchangethings.model.helper.Items;
 
-import com.sun.javafx.collections.NonIterableChange;
 import ru.rsreu.exchangethings.exceptions.IncludeParameterException;
 import ru.rsreu.exchangethings.model.ItemStatusEnum;
 import ru.rsreu.exchangethings.model.helper.Helper;

@@ -65,10 +65,20 @@ public class RequestDAOImpl implements RequestDAO {
     public void updateStatusByItem(int itemId, int status) throws SQLException {
         String query = QueriesProperties.getProperty("UpdateStatusRequestByItem");
         PreparedStatement preparedStatement = this.getPreparedStatement(query);
-        preparedStatement.setInt(1,status);
+        preparedStatement.setInt(1, status);
         preparedStatement.setInt(2, itemId);
-        preparedStatement.setInt(3,itemId);
+        preparedStatement.setInt(3, itemId);
         preparedStatement.executeUpdate();
+    }
+
+    @Override
+    public List<RequestEntity> getRequestEntitiesByItem(int itemSenderId, int itemReciverId) throws SQLException {
+        String query = QueriesProperties.getProperty("SelectReqByItems");
+        PreparedStatement preparedStatement = this.getPreparedStatement(query);
+        preparedStatement.setInt(1, itemSenderId);
+        preparedStatement.setInt(2, itemReciverId);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        return this.getRequestsFromQuery(resultSet);
     }
 
 

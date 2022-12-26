@@ -14,7 +14,7 @@ public enum AdminControlEnum implements GetControl {
     ADDING_HUMAN(PageEnum.SEND_REDIRECT_ADMIN.getView(), HelperEnum.HUMAN_SAVE.getHelper()),
     EDIT_DELETE_HUMAN(PageEnum.ADMIN_MAIN.getView(), HelperEnum.EDIT_DELETE_HUMANS.getHelper()),
     EDIT_HUMAN(PageEnum.EDIT_HUMAN.getView(), HelperEnum.EDIT_HUMAN.getHelper()),
-    DELETE_HUMAN(PageEnum.SEND_REDIRECT_ADMIN.getView()),
+    DELETE_HUMAN(PageEnum.SEND_REDIRECT_ADMIN.getView(), HelperEnum.DELETE_USER.getHelper()),
     SHOW_AUTHORIZED_USERS(PageEnum.ADMIN_MAIN.getView(), HelperEnum.SHOW_AUTHORIZED_HUMAN.getHelper()),
     HUMAN_SAVE_EDIT(PageEnum.SEND_REDIRECT_ADMIN.getView(), HelperEnum.HUMAN_SAVE_EDIT.getHelper());
 

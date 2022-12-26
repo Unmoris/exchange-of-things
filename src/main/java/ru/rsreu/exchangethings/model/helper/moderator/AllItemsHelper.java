@@ -2,7 +2,6 @@ package ru.rsreu.exchangethings.model.helper.moderator;
 
 import ru.rsreu.exchangethings.exceptions.IncludeParameterException;
 import ru.rsreu.exchangethings.model.helper.MenuHelper;
-import ru.rsreu.exchangethings.model.mock.GetMockData;
 import ru.rsreu.exchangethings.model.service.ItemService;
 
 import javax.servlet.http.HttpServletRequest;

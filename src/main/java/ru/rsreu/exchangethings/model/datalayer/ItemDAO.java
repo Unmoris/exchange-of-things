@@ -27,7 +27,7 @@ public interface ItemDAO {
      * @return
      * @throws SQLException
      */
-    List<ItemEntity> getItemsByUser(int userId) throws SQLException;
+    List<ItemEntity> getItemsByUser(int userId, int itemStatus) throws SQLException;
 
     /**
      * Get All

@@ -4,13 +4,8 @@ import ru.rsreu.exchangethings.exceptions.IncludeParameterException;
 import ru.rsreu.exchangethings.model.ExchangeStatusEnum;
 import ru.rsreu.exchangethings.model.datalayer.DBType;
 import ru.rsreu.exchangethings.model.datalayer.RequestDAO;
-import ru.rsreu.exchangethings.model.datalayer.entity.ItemEntity;
 import ru.rsreu.exchangethings.model.datalayer.entity.RequestEntity;
-import ru.rsreu.exchangethings.model.datalayer.entity.RequestStatusEntity;
-import ru.rsreu.exchangethings.model.datalayer.oracledb.OracleDBDAOFactory;
-import ru.rsreu.exchangethings.view.beans.ItemBean;
 import ru.rsreu.exchangethings.view.beans.RequestBean;
-import ru.rsreu.exchangethings.view.beans.UserBean;
 
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -117,5 +112,18 @@ public class RequestService {
             logger.log(Level.WARNING, "SQL EXCEPTION :" + e.getMessage());
             throw new IncludeParameterException();
         }
+    }
+
+    public List<RequestBean> getRequestByItem(int itemSenderId, int itemReciverId) {
+        List<RequestBean> exchanges = new LinkedList<>();
+        try {
+            requestDAO.getRequestEntitiesByItem(itemSenderId, itemReciverId)
+                    .stream()
+                    .forEach(request -> exchanges.add(new RequestBean(request)));
+        } catch (SQLException e) {
+            logger.log(Level.WARNING, "SQL EXCEPTION :" + e.getMessage());
+            throw new IncludeParameterException();
+        }
+        return exchanges;
     }
 }

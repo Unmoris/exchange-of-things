@@ -1,18 +1,13 @@
 package ru.rsreu.exchangethings.model.service;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import ru.rsreu.exchangethings.configuration.QueriesProperties;
 import ru.rsreu.exchangethings.exceptions.IncludeParameterException;
 import ru.rsreu.exchangethings.model.UserRoleEnum;
 import ru.rsreu.exchangethings.model.UserStatusEnum;
 import ru.rsreu.exchangethings.model.datalayer.DBType;
 import ru.rsreu.exchangethings.model.datalayer.UserDAO;
 import ru.rsreu.exchangethings.model.datalayer.entity.UserEntity;
-import ru.rsreu.exchangethings.model.datalayer.oracledb.UserDAOImpl;
-import ru.rsreu.exchangethings.view.beans.ItemBean;
 import ru.rsreu.exchangethings.view.beans.UserBean;
 
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.LinkedList;
@@ -158,7 +153,7 @@ public class UserService {
         }
     }
 
-    void deleteUser(int userId) {
+    public void deleteUser(int userId) {
         try {
             userDAO.deleteUser(userId);
         } catch (SQLException e) {

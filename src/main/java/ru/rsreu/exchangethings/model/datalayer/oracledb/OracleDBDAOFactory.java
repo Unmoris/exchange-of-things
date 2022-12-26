@@ -1,7 +1,6 @@
 package ru.rsreu.exchangethings.model.datalayer.oracledb;
 
 import ru.rsreu.exchangethings.configuration.ConnectionResource;
-import ru.rsreu.exchangethings.configuration.JspResource;
 import ru.rsreu.exchangethings.model.datalayer.DAOFactory;
 
 import java.sql.Connection;

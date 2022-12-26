@@ -1,9 +1,9 @@
 package ru.rsreu.exchangethings.filters;
 
-import ru.rsreu.exchangethings.view.parameters.ControlNames;
 import ru.rsreu.exchangethings.exceptions.AuthenticationException;
 import ru.rsreu.exchangethings.security.SecurityService;
 import ru.rsreu.exchangethings.security.token.TokenStorage;
+import ru.rsreu.exchangethings.view.parameters.ControlNames;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;

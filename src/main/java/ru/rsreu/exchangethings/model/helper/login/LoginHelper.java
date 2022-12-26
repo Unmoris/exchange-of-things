@@ -1,12 +1,10 @@
 package ru.rsreu.exchangethings.model.helper.login;
 
-import ru.rsreu.exchangethings.model.helper.LoggerHelper;
 import ru.rsreu.exchangethings.exceptions.IncludeParameterException;
-import ru.rsreu.exchangethings.model.helper.user.UserInfoHelper;
 import ru.rsreu.exchangethings.model.UserRoleEnum;
+import ru.rsreu.exchangethings.model.helper.LoggerHelper;
 import ru.rsreu.exchangethings.model.mock.TestLogging;
 import ru.rsreu.exchangethings.model.service.UserService;
-import ru.rsreu.exchangethings.security.SecurityService;
 import ru.rsreu.exchangethings.security.TokenRegistrar;
 import ru.rsreu.exchangethings.security.token.TokenInfo;
 import ru.rsreu.exchangethings.view.beans.UserBean;

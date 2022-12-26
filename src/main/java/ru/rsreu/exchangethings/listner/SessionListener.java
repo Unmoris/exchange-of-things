@@ -5,8 +5,6 @@ import ru.rsreu.exchangethings.security.SecurityService;
 import ru.rsreu.exchangethings.security.token.TokenInfo;
 
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionAttributeListener;
-import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 import java.util.logging.Logger;

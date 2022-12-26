@@ -121,6 +121,18 @@
                     </div>
                 </c:forEach>
             </c:when>
+            <c:when test="${menu_item == 'notifications'}">
+                <c:forEach var="item" items="${notifications}">
+                    <div>
+                        <form method="post">
+                            <label>
+                                У вас есть сообщение: "${item.message}" </br>
+                            </label>
+                        </form>
+                    </br>
+                    </div>
+                </c:forEach>
+            </c:when>
             <c:otherwise>
                 Где-то была ошибка
             </c:otherwise>

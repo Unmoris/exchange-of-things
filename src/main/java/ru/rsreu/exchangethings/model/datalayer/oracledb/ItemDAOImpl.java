@@ -40,10 +40,13 @@ public class ItemDAOImpl implements ItemDAO {
         return this.getItemsFromQuery(resultSet);
     }
 
-    public List<ItemEntity> getItemsByUser(int userId) throws SQLException {
+    public List<ItemEntity> getItemsByUser(int userId, int itemStatus) throws SQLException {
         String query = QueriesProperties.getProperty("GetItemsByUser");
         PreparedStatement preparedStatement = this.getPreparedStatement(query);
         preparedStatement.setInt(1, userId);
+        preparedStatement.setInt(2, itemStatus);
+
+
         ResultSet resultSet = preparedStatement.executeQuery();
         return this.getItemsFromQuery(resultSet);
     }

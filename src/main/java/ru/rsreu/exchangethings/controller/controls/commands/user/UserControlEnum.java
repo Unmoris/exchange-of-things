@@ -3,7 +3,9 @@ package ru.rsreu.exchangethings.controller.controls.commands.user;
 import ru.rsreu.exchangethings.controller.controls.Control;
 import ru.rsreu.exchangethings.controller.controls.ViewControl;
 import ru.rsreu.exchangethings.controller.controls.commands.GetControl;
+import ru.rsreu.exchangethings.model.helper.Helper;
 import ru.rsreu.exchangethings.model.helper.HelperEnum;
+import ru.rsreu.exchangethings.view.pages.Page;
 import ru.rsreu.exchangethings.view.pages.PageEnum;
 
 public enum UserControlEnum implements GetControl {
@@ -19,11 +21,16 @@ public enum UserControlEnum implements GetControl {
     ADD_ITEM(new ViewControl(PageEnum.SEND_REDIRECT_USER.getView(), HelperEnum.LIST_ITEMS_FOR_USER.getHelper(), HelperEnum.ADD_ITEM.getHelper())),
     INFO_ITEM(new ViewControl(PageEnum.INFO_ITEM.getView(), HelperEnum.ITEM_INFO.getHelper())),
     EXCHANGE_ITEM_APPROVE(new ViewControl(PageEnum.SEND_REDIRECT_USER.getView(), HelperEnum.APPROVE_EXCHANGE.getHelper())),
-    EXCHANGE_ITEM_NOT_APPROVE(new ViewControl(PageEnum.SEND_REDIRECT_USER.getView(), HelperEnum.CANCEL_EXCHANGE.getHelper()));
+    EXCHANGE_ITEM_NOT_APPROVE(new ViewControl(PageEnum.SEND_REDIRECT_USER.getView(), HelperEnum.CANCEL_EXCHANGE.getHelper())),
+    NOTIFICATIONS(PageEnum.USER_MAIN.getView(), HelperEnum.NOTIFICATIONS.getHelper());
     Control control;
 
     UserControlEnum(Control control) {
         this.control = control;
+    }
+
+    UserControlEnum(Page commonPage, Helper... helpers) {
+        this.control = new ViewControl(commonPage, helpers);
     }
 
     @Override

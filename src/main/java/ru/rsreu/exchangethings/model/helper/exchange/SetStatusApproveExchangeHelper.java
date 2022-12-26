@@ -6,7 +6,6 @@ import ru.rsreu.exchangethings.model.datalayer.entity.RequestEntity;
 import ru.rsreu.exchangethings.model.helper.Helper;
 import ru.rsreu.exchangethings.model.service.ItemService;
 import ru.rsreu.exchangethings.model.service.RequestService;
-import ru.rsreu.exchangethings.model.service.UserService;
 import ru.rsreu.exchangethings.view.beans.ItemBean;
 
 import javax.servlet.http.HttpServletRequest;

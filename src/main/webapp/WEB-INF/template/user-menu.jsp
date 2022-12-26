@@ -19,5 +19,8 @@
         <button value="LIST_ITEMS" name=${actions.user}>
             Список вещей
         </button>
+        <button value="notifications" name=${actions.user}>
+            Уведомления
+        </button>
     </form>
 </div>

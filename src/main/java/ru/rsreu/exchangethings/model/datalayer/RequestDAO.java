@@ -74,4 +74,6 @@ public interface RequestDAO {
      * @throws SQLException
      */
     void updateStatusByItem(int itemId, int status) throws  SQLException;
+
+    List<RequestEntity> getRequestEntitiesByItem(int itemSenderId, int itemReciverId) throws  SQLException;
 }
