@@ -15,11 +15,10 @@ import java.util.List;
 
 public class DeleteUserHelper implements Helper {
     UserService userService = UserService.instance;
-    private ItemService itemService = ItemService.instance;
-    private RequestService requestService = RequestService.instance;
+
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IncludeParameterException {
-        int userId = 1;
-        userService.deleteUser(userId);
+        int id = Integer.parseInt(request.getParameter("id_user"));
+        userService.deleteUser(id);
     }
 }
